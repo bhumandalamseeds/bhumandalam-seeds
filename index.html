@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="hi" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>भूमंडलम सीड्स - शुद्ध बीज, समृद्ध किसान</title>
+    <title id="pageTitle">भूमंडलम सीड्स - शुद्ध बीज, समृद्ध किसान</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -51,49 +51,65 @@
             <div class="flex items-center space-x-2 sm:space-x-3 cursor-pointer" onclick="openPage('pageHome')">
                 <img alt="भूमंडलम सीड्स लोगो" class="w-12 h-12 sm:w-16 sm:h-16 object-contain" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_1L-t58U_bGiO5jpDYqevw4sFui4AUDm2tjE2usi-jIYR2tYoEz2GPJqv8uWQIzznzTEaccz1XqxJNYh6sK1c2GARwFp9DkgLO1zqcN0737ZiXvXEiSwkMmhHFedGGEU2K6xnsiu4eJCVl2enqy8c6tjWULlF34IwZVsGJQEtTRrW_BbOCwPEJVW0hSI/s320/bhum%20logo.png"/>
                 <div>
-                    <h1 class="font-bold text-base sm:text-xl text-slate-900 tracking-tight leading-tight">भूमंडलम सीड्स</h1>
-                    <p class="text-[10px] sm:text-xs text-agri-700 font-medium">शुद्ध बीज, समृद्ध किसान</p>
+                    <h1 class="font-bold text-base sm:text-xl text-slate-900 tracking-tight leading-tight" data-t="brandName">भूमंडलम सीड्स</h1>
+                    <p class="text-[10px] sm:text-xs text-agri-700 font-medium" data-t="brandTagline">शुद्ध बीज, समृद्ध किसान</p>
                 </div>
             </div>
 
             <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center space-x-2">
-                <button class="px-4 py-2 text-sm font-semibold text-agri-700 bg-agri-50 rounded-xl transition flex items-center space-x-2" onclick="openPage('pageHome')">
-                    <i class="fa-solid fa-house"></i><span>मुखपृष्ठ</span>
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                <button class="px-3 py-2 text-xs lg:text-sm font-semibold text-agri-700 bg-agri-50 rounded-xl transition flex items-center space-x-1.5" onclick="openPage('pageHome')">
+                    <i class="fa-solid fa-house"></i><span data-t="navHome">मुख पृष्ठ</span>
                 </button>
-                <button class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-agri-700 hover:bg-slate-100 rounded-xl transition flex items-center space-x-2" onclick="openPage('pageProducts')">
-                    <i class="fa-solid fa-cart-shopping"></i><span>आमची उत्पादने (10)</span>
+                <button class="px-3 py-2 text-xs lg:text-sm font-semibold text-slate-600 hover:text-agri-700 hover:bg-slate-100 rounded-xl transition flex items-center space-x-1.5" onclick="openPage('pageProducts')">
+                    <i class="fa-solid fa-cart-shopping"></i><span data-t="navProducts">उत्पादक</span>
                 </button>
-                <button class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-agri-700 hover:bg-slate-100 rounded-xl transition flex items-center space-x-2" onclick="openPage('pageCrops')">
-                    <i class="fa-solid fa-wheat-awn"></i><span>पिकांची माहिती</span>
+                <button class="px-3 py-2 text-xs lg:text-sm font-semibold text-slate-600 hover:text-agri-700 hover:bg-slate-100 rounded-xl transition flex items-center space-x-1.5" onclick="openPage('pageCrops')">
+                    <i class="fa-solid fa-wheat-awn"></i><span data-t="navCrops">फसल जानकारी</span>
+                </button>
+                <button class="px-3 py-2 text-xs lg:text-sm font-semibold text-slate-600 hover:text-agri-700 hover:bg-slate-100 rounded-xl transition flex items-center space-x-1.5" onclick="openPage('pageFertilizers')">
+                    <i class="fa-solid fa-flask"></i><span data-t="navFertilizers">उर्वरक मार्गदर्शन</span>
+                </button>
+                <button class="px-3 py-2 text-xs lg:text-sm font-semibold text-slate-600 hover:text-agri-700 hover:bg-slate-100 rounded-xl transition flex items-center space-x-1.5" onclick="openPage('pageContact')">
+                    <i class="fa-solid fa-address-book"></i><span data-t="navContact">संपर्क</span>
                 </button>
             </nav>
 
-            <!-- Quick Action / Contact CTA -->
-            <div class="hidden sm:flex items-center space-x-3">
-                <a class="px-4 py-2.5 text-sm font-semibold text-white bg-agri-600 hover:bg-agri-700 rounded-xl shadow-md transition flex items-center space-x-2" href="https://wa.me/918530978413?text=नमस्कार,%20मला%20बियाणे%20खरेदी%20करण्याबाबत%20माहिती%20हवी%20आहे." target="_blank">
-                    <i class="fa-brands fa-whatsapp text-lg"></i><span>व्हॉट्सॲप ऑर्डर</span>
+            <!-- Multi-Language Switcher Tab & WhatsApp -->
+            <div class="flex items-center space-x-2">
+                <select id="langSwitch" onchange="switchLanguage(this.value)" class="text-xs font-bold bg-slate-100 border border-slate-300 rounded-lg px-2 py-1.5 focus:outline-none">
+                    <option value="mr">मराठी</option>
+                    <option value="hi" selected>हिंदी</option>
+                    <option value="en">English</option>
+                    <option value="ta">தமிழ்</option>
+                    <option value="te">తెలుగు</option>
+                    <option value="kn">ಕನ್ನಡ</option>
+                </select>
+                <a class="hidden sm:flex px-3 py-2 text-xs font-semibold text-white bg-agri-600 hover:bg-agri-700 rounded-xl shadow-md transition items-center space-x-1.5" href="https://wa.me/918530978413?text=नमस्कार,%20मला%20बियाणे%20खरेदी%20करण्याबाबत%20माहिती%20हवी%20आहे." target="_blank">
+                    <i class="fa-brands fa-whatsapp text-base"></i><span data-t="whatsappBtn">व्हाट्सएप ऑर्डर</span>
                 </a>
-            </div>
-
-            <!-- Mobile Menu Toggle Button -->
-            <div class="md:hidden flex items-center">
-                <button class="p-2 rounded-xl bg-slate-100 text-slate-700 active:bg-slate-200 transition" onclick="toggleMobileMenu()">
+                <button class="md:hidden p-2 rounded-xl bg-slate-100 text-slate-700" onclick="toggleMobileMenu()">
                     <i class="fa-solid fa-bars text-lg"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Dropdown Menu -->
+        <!-- Mobile Menu -->
         <div class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 shadow-lg" id="mobileMenu">
-            <button class="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-agri-50 hover:text-agri-700 flex items-center space-x-3" onclick="openPage('pageHome'); toggleMobileMenu();">
-                <i class="fa-solid fa-house w-5 text-agri-600"></i><span>मुखपृष्ठ</span>
+            <button class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-agri-50 hover:text-agri-700 flex items-center space-x-3" onclick="openPage('pageHome'); toggleMobileMenu();">
+                <i class="fa-solid fa-house w-5 text-agri-600"></i><span data-t="navHome">मुख पृष्ठ</span>
             </button>
-            <button class="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-agri-50 hover:text-agri-700 flex items-center space-x-3" onclick="openPage('pageProducts'); toggleMobileMenu();">
-                <i class="fa-solid fa-cart-shopping w-5 text-agri-600"></i><span>आमची उत्पादने</span>
+            <button class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-agri-50 hover:text-agri-700 flex items-center space-x-3" onclick="openPage('pageProducts'); toggleMobileMenu();">
+                <i class="fa-solid fa-cart-shopping w-5 text-agri-600"></i><span data-t="navProducts">उत्पादक</span>
             </button>
-            <button class="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-agri-50 hover:text-agri-700 flex items-center space-x-3" onclick="openPage('pageCrops'); toggleMobileMenu();">
-                <i class="fa-solid fa-wheat-awn w-5 text-agri-600"></i><span>पिकांची माहिती</span>
+            <button class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-agri-50 hover:text-agri-700 flex items-center space-x-3" onclick="openPage('pageCrops'); toggleMobileMenu();">
+                <i class="fa-solid fa-wheat-awn w-5 text-agri-600"></i><span data-t="navCrops">फसल जानकारी</span>
+            </button>
+            <button class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-agri-50 hover:text-agri-700 flex items-center space-x-3" onclick="openPage('pageFertilizers'); toggleMobileMenu();">
+                <i class="fa-solid fa-flask w-5 text-agri-600"></i><span data-t="navFertilizers">उर्वरक मार्गदर्शन</span>
+            </button>
+            <button class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-agri-50 hover:text-agri-700 flex items-center space-x-3" onclick="openPage('pageContact'); toggleMobileMenu();">
+                <i class="fa-solid fa-address-book w-5 text-agri-600"></i><span data-t="navContact">संपर्क</span>
             </button>
         </div>
     </header>
@@ -101,121 +117,505 @@
     <!-- Main Content Container -->
     <main class="flex-grow">
 
-        <!-- PAGE 1: HOME PAGE -->
+        <!-- ================= PAGE 1: HOME ================= -->
         <div class="page-view active-page" id="pageHome">
-            <div class="bg-gradient-to-br from-slate-900 via-agri-950 to-agri-900 text-white py-12 sm:py-20 px-4">
-                <div class="max-w-7xl mx-auto text-center space-y-6">
+            <div class="bg-gradient-to-br from-slate-900 via-agri-950 to-agri-900 text-white py-14 sm:py-24 px-4 text-center">
+                <div class="max-w-4xl mx-auto space-y-6">
                     <span class="bg-agri-800/80 border border-agri-600/50 text-agri-300 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide inline-block">
-                        <i class="fa-solid fa-star text-yellow-400 mr-1"></i> प्रगतशील व उच्च उत्पादनक्षम बियाणे
+                        <i class="fa-solid fa-star text-yellow-400 mr-1"></i> <span data-t="homeBadge">ISO 9001:2015 प्रमाणित कंपनी</span>
                     </span>
                     <h2 class="text-3xl sm:text-6xl font-extrabold text-yellow-400 leading-tight">
-                        शुद्ध बीज, <br/><span class="text-amber-300">समृद्ध किसान</span>
+                        <span data-t="homeTitle">शुद्ध बीज, समृद्ध किसान</span>
                     </h2>
-                    <p class="text-sm sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                        भूमंडलम सीड्स घेऊन आले आहे उच्च गुणवत्तापूर्ण, रोगप्रतिकारक आणि भरघोस उत्पादन देणारे दर्जेदार वाण.
+                    <p class="text-sm sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed" data-t="homeDesc">
+                        सोयाबीन, राजमा, तूर, उडीद, मूग, कांदा आणि सूर्यफूल बियाणे उत्पादक अग्रणी कंपनी.
                     </p>
-                    <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                        <button class="px-6 py-3.5 bg-agri-500 hover:bg-agri-600 font-bold rounded-xl transition flex items-center justify-center space-x-2" onclick="openPage('pageProducts')">
-                            <span>आमची १० उत्पादने पहा</span><i class="fa-solid fa-arrow-right"></i>
+                    <div class="flex justify-center gap-4 pt-4">
+                        <button class="px-6 py-3.5 bg-agri-500 hover:bg-agri-600 font-bold rounded-xl transition shadow-lg text-white" onclick="openPage('pageProducts')">
+                            <span data-t="homeBtn">उत्पादने पहा</span> <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- PAGE 2: PRODUCTS PAGE -->
+        <!-- ================= PAGE 2: PRODUCTS (Interactive Quantities & Prices) ================= -->
         <div class="page-view py-8 max-w-7xl mx-auto px-4" id="pageProducts">
             <div class="text-center max-w-2xl mx-auto mb-8">
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">भूमंडलम सीड्स १० मुख्य उत्पादने</h2>
-                <p class="text-xs sm:text-sm text-slate-500 mt-1">बॅग संख्या निवडा आणि थेट व्हॉट्सॲपवर ऑर्डर नोंदवा.</p>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900" data-t="prodHead">आमची दर्जेदार बियाणे उत्पादने</h2>
             </div>
 
             <!-- Products Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <!-- Product 1 -->
+                <!-- 1. KDS 753 -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoyyctmp5WH402s_wCnBreWrkHrEBWadDTpYyd8gR-uVwgX9oXXN2DYSmCci-EVevYyivU8QALAfnjuuD1QKdPqhyo7PK9nOsJw0K4mPvJ7LiQp4IekNr3wwiPbeSv9-Vxcmgx60Bq0NOMiJEuj23wWFgxLpifDlKVFlnYzrXkBeGmEUrU-hvlSsBsTB4/s1600/DURVA.jpg" class="w-full h-44 object-cover rounded-xl mb-3" alt="सोयाबीन">
-                    <h3 class="font-bold text-base">१. भूमंडलम सोयाबीन (KDS 992 फुले दुर्वा)</h3>
-                    <p class="text-xs text-slate-500 my-1">३० किलो बॅग • दाणे मोठे व टपोरे</p>
-                    <div class="flex justify-between items-center my-3">
-                        <span class="text-base font-bold text-agri-700">₹२,२५० / बॅग</span>
-                        <div class="flex items-center space-x-2 bg-slate-100 p-1 rounded-lg">
-                            <button onclick="updateQty(1, -1, 2250)" class="w-6 h-6 bg-white rounded font-bold shadow">-</button>
-                            <span id="qty-1" class="w-6 text-center font-bold text-sm">1</span>
-                            <button onclick="updateQty(1, 1, 2250)" class="w-6 h-6 bg-white rounded font-bold shadow">+</button>
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">KDS 753 (फुले किमया)</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p1Title">KDS 753 (फुले किमया) सोयाबीन</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p1Desc">• अवधी ९५ ते १०५ दिवस<br>• उच्च रोगप्रतिकारक्षम, विविध रोगांसाठी सहनशील<br>• बोल्ड आणि आकर्षक बीज, अधिक उत्पादन<br>• २५ किलो पॅक उपलब्ध</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹२,५५०</span>
                         </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(1, -1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-1" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(1, 1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-1" class="text-sm text-agri-700">₹२,५५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('KDS 753 (फुले किमया) सोयाबीन', '२५ किलो पॅक', 1, 2550)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
                     </div>
-                    <div class="bg-agri-50 p-2 rounded-lg flex justify-between text-xs font-bold text-agri-900 mb-2">
-                        <span>एकूण:</span><span id="total-1">₹२,२५०</span>
-                    </div>
-                    <button onclick="buyOnWhatsApp('१. फुले दुर्वा सोयाबीन', '३० किलो', 1, 2250)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
-                        <i class="fa-brands fa-whatsapp text-sm"></i><span>व्हॉट्सॲपवर खरेदी करा</span>
-                    </button>
                 </div>
 
-                <!-- Product 2 -->
+                <!-- 2. MACS 1188 -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
-                    <img src="https://images.unsplash.com/photo-1599598425947-020645323005" class="w-full h-44 object-cover rounded-xl mb-3" alt="सोयाबीन JS">
-                    <h3 class="font-bold text-base">२. भूमंडलम सोयाबीन (JS-9560)</h3>
-                    <p class="text-xs text-slate-500 my-1">३० किलो बॅग • कम कालावधीत तयार होणारा वाण</p>
-                    <div class="flex justify-between items-center my-3">
-                        <span class="text-base font-bold text-agri-700">₹२,१५० / बॅग</span>
-                        <div class="flex items-center space-x-2 bg-slate-100 p-1 rounded-lg">
-                            <button onclick="updateQty(2, -1, 2150)" class="w-6 h-6 bg-white rounded font-bold shadow">-</button>
-                            <span id="qty-2" class="w-6 text-center font-bold text-sm">1</span>
-                            <button onclick="updateQty(2, 1, 2150)" class="w-6 h-6 bg-white rounded font-bold shadow">+</button>
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">MACS 1188 सोयाबीन</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p2Title">MACS 1188 सोयाबीन</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p2Desc">• सफेद फूलों वाली और अच्छी उपज देने वाली किस्म<br>• फलियाँ पकने के बाद चटकती नहीं हैं<br>• अवधि १०५ दिन, २५ kg पैक</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹२,५५०</span>
                         </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(2, -1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-2" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(2, 1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-2" class="text-sm text-agri-700">₹२,५५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('MACS 1188 सोयाबीन', '२५ किलो पॅक', 2, 2550)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
                     </div>
-                    <div class="bg-agri-50 p-2 rounded-lg flex justify-between text-xs font-bold text-agri-900 mb-2">
-                        <span>एकूण:</span><span id="total-2">₹२,१५०</span>
-                    </div>
-                    <button onclick="buyOnWhatsApp('२. JS-9560 सोयाबीन', '३० किलो', 2, 2150)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
-                        <i class="fa-brands fa-whatsapp text-sm"></i><span>व्हॉट्सॲपवर खरेदी करा</span>
-                    </button>
                 </div>
 
-                <!-- Product 3 -->
+                <!-- 3. KDS 992 -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
-                    <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076" class="w-full h-44 object-cover rounded-xl mb-3" alt="मका">
-                    <h3 class="font-bold text-base">३. भूमंडलम मका-४०४</h3>
-                    <p class="text-xs text-slate-500 my-1">४ किलो बॅग • सोनेरी दाणे, हायब्रिड वाण</p>
-                    <div class="flex justify-between items-center my-3">
-                        <span class="text-base font-bold text-agri-700">₹९५० / बॅग</span>
-                        <div class="flex items-center space-x-2 bg-slate-100 p-1 rounded-lg">
-                            <button onclick="updateQty(3, -1, 950)" class="w-6 h-6 bg-white rounded font-bold shadow">-</button>
-                            <span id="qty-3" class="w-6 text-center font-bold text-sm">1</span>
-                            <button onclick="updateQty(3, 1, 950)" class="w-6 h-6 bg-white rounded font-bold shadow">+</button>
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">KDS 992 (फुले दुर्वा)</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p3Title">KDS 992 (फुले दुर्वा) सोयाबीन</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p3Desc">• अवधी ९० ते १०० दिवस<br>• अधिक फुटाव व बोल्ड आकर्षक दाणे<br>• ५ KG आणि २५ Kg पॅक</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹२,५५0</span>
                         </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(3, -1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-3" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(3, 1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-3" class="text-sm text-agri-700">₹२,५५0</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('KDS 992 (फुले दुर्वा)', '२५ किलो पॅक', 3, 2५५0)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
                     </div>
-                    <div class="bg-agri-50 p-2 rounded-lg flex justify-between text-xs font-bold text-agri-900 mb-2">
-                        <span>एकूण:</span><span id="total-3">₹९५०</span>
+                </div>
+
+                <!-- 4. KDS 726 -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">KDS 726 (फुले संगम)</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p4Title">KDS 726 (फुले संगम) सोयाबीन</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p4Desc">• अवधी १०५ ते ११० दिवस<br>• अधिक उपज देणारी जात<br>• २५ किलो पॅक</p>
                     </div>
-                    <button onclick="buyOnWhatsApp('३. मका-४०४', '४ किलो', 3, 950)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
-                        <i class="fa-brands fa-whatsapp text-sm"></i><span>व्हॉट्सॲपवर खरेदी करा</span>
-                    </button>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹२,५५०</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(4, -1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-4" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(4, 1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-4" class="text-sm text-agri-700">₹२,३००</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('KDS 726 (फुले संगम)', '२५ किलो पॅक', 4, 2550)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 5. DS 228 -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">DS 228 (फुले कल्याणी)</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p5Title">DS 228 (फुले कल्याणी) सोयाबीन</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p5Desc">• उपज २५ ते ३० क्विंटल प्रती हेक्टर<br>• अवधी ९५ ते १०० दिवस<br>• २५ किलो पॅकेट</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹२,५५०</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(5, -1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-5" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(5, 1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-5" class="text-sm text-agri-700">₹२,५५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('DS 228 (फुले कल्याणी)', '२५ किलो पॅक', 5, 2550)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 6. AMS 100-39 -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-36 h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">AMS 100-39</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p6Title">AMS 100-39 (PDKV AMBA) सोयाबीन</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p6Desc">• लवकर पकडणारी जात (९४-९६ दिवस)<br>• उच्च तेल व प्रोटीन प्रमाण<br>• २५ किलो पॅक</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹२,५५०</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(6, -1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-6" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(6, 1, 2550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-6" class="text-sm text-agri-700">₹२,५५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('AMS 100-39 PDKV Amba', '२५ किलो पॅक', 6, 2550)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 7. MACS 1281 -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">MACS 1281</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p7Title">MACS 1281 सोयाबीन</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p7Desc">• जांभळ्या फुलांसह मोठे दाणे<br>• अवधी ९०-९५ दिवस<br>• २५ किलो पॅक</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹२,१२०</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(7, -1, 2120)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-7" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(7, 1, 2120)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-7" class="text-sm text-agri-700">₹२,१२०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('MACS 1281 सोयाबीन', '२५ किलो पॅक', 7, 2120)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 8. Phule Rajmah -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">फुले राजमा</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p8Title">फुले राजमा (वाघा घेवडा)</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p8Desc">• बोल्ड बियाणे, पांढऱ्या बिंयावर  गुलाबी डाग असलेले , विक्रीसाठी सर्वात जास्त लोकप्रिय<br>• वय ७६ ते ८० दिवस<br>• २५ किलो पॅक</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹४,000</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(8, -1, 4000)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-8" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(8, 1, 4000)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-8" class="text-sm text-agri-700">₹४,000</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('फुले राजमा', '२५ किलो पॅक', 8, 4000)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 9. BDN 711 Tur -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">BDN 711 तूर</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p9Title">BDN 711 तूर बियाणे</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p9Desc">• मध्यम ते भारी मातीसाठी योग्य<br>• अवधी १५० ते १५५ दिवस<br>• मशीनद्वारे काढण्यासाठी उपयुक्त</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति किलो पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹२५०</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(9, -1, 250)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-9" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(9, 1, 250)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-9" class="text-sm text-agri-700">₹२५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('BDN 711 तूर', '१ किलो पॅक', 9, 250)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 10. BDN 716 Tur -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">BDN 716 तूर</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p10Title">BDN 716 तूर (विदर्भ लोकप्रिय)</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p10Desc">• विदर्भात सर्वाधिक लोकप्रिय जात<br>• अवधी १५५ ते १६० दिवस<br>• लाल दाने, बांझ रोगास प्रतिकारक</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹६८०</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(10, -1, 680)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-10" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(10, 1, 680)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-10" class="text-sm text-agri-700">₹६८०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('BDN 716 तूर', '१ किलो पॅक', 10, 680)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 11. Udid TAU-1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">TAU-1 (उड़द)</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p11Title">उडीद: TAU-1 (काला चना)</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p11Desc">• यशस्वी व लोकप्रिय उडीद जात<br>• अवधी ६८ ते ७५ दिवस<br>• १ किलो पॅक</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹५५०</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(11, -1, 550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-11" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(11, 1, 550)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-11" class="text-sm text-agri-700">₹५५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('उडीद TAU-1', '१ किलो पॅक', 11, 550)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 12. Moong BM-2003-02 -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">BM-2003-02 (मूंग)</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p12Title">मूग: BM-2003-02</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p12Desc">• अवधी ६० ते ७० दिवस<br>• चमकीला, गहरा हरा बोल्ड बीज<br>• १ किलो पॅक</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹५८०</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(12, -1, 580)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-12" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(12, 1, 580)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-12" class="text-sm text-agri-700">₹५८०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('मूग BM-2003-02', '१ किलो पॅक', 12, 580)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 13. Phule Samarth Red Onion -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">फुले समर्थ प्याज</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p13Title">फुले समर्थ लाल कांदा बियाणे</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p13Desc">• हलक्या मातीसाठी उत्तम<br>• ३ किलो प्रति एकड़ बियाणे आवश्यक<br>• ५०० ग्रॅम पॅक</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹४५०</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(13, -1, 450)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-13" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(13, 1, 450)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-13" class="text-sm text-agri-700">₹४५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('फुले समर्थ लाल कांदा', '५०० ग्रॅम पॅक', 13, 450)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 14. Phule Bhaskar Sunflower -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-36 bg-agri-50 rounded-xl mb-3 flex items-center justify-center font-bold text-agri-800 text-base">फुले भास्कर सूर्यमुखी</div>
+                        <h3 class="font-bold text-base text-slate-900" data-t="p14Title">फुले भास्कर सूर्यफूल बियाणे</h3>
+                        <p class="text-xs text-slate-600 my-2 leading-relaxed" data-t="p14Desc">• लवकर पकडणारी जात (७५-८० दिवस)<br>• तेलाचे प्रमाण ३७-३८%<br>• २ किलो पॅक</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center my-3 border-t pt-2">
+                            <span class="text-xs text-slate-500" data-t="priceLbl">दर प्रति पॅक:</span>
+                            <span class="text-base font-extrabold text-agri-850">₹६५०</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-3 bg-slate-100 p-2 rounded-xl">
+                            <span class="text-xs font-bold text-slate-700" data-t="qtyLbl">संख्या (Qty):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="updateQty(14, -1, 650)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">-</button>
+                                <span id="qty-14" class="w-6 text-center font-bold text-sm">1</span>
+                                <button onclick="updateQty(14, 1, 650)" class="w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700">+</button>
+                            </div>
+                        </div>
+                        <div class="bg-agri-50 p-2 rounded-xl flex justify-between text-xs font-bold text-agri-900 mb-2">
+                            <span data-t="totalLbl">एकूण किंमत:</span>
+                            <span id="total-14" class="text-sm text-agri-700">₹६५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('फुले भास्कर सूर्यफूल', '२ किलो पॅक', 14, 650)" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex justify-center items-center space-x-1 shadow">
+                            <i class="fa-brands fa-whatsapp text-sm"></i><span data-t="whatsappOrder">व्हॉट्सॲपवर ऑर्डर करा</span>
+                        </button>
+                    </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- PAGE 3: CROPS INFO PAGE -->
+        <!-- ================= PAGE 3: CROPS INFO ================= -->
         <div class="page-view py-8 max-w-7xl mx-auto px-4" id="pageCrops">
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">पिकांची माहिती व मार्गदर्शन</h2>
-            <p class="text-sm text-slate-600">योग्य पेरणी, खत व्यवस्थापन आणि पाण्याचे नियोजन याबद्दलची माहिती इथे उपलब्ध होईल.</p>
+            <div class="max-w-3xl mx-auto bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                <h2 class="text-2xl font-bold text-slate-900" data-t="cropHead">पिकांची लागवड व मार्गदर्शन</h2>
+                <p class="text-sm text-slate-600 leading-relaxed" data-t="cropDesc">
+                    आमच्या सर्व बियाण्यांच्या उत्तम उगवण क्षमतेसाठी योग्य बीजप्रक्रिया करा. सोयाबीन, तूर, मूग व उडीद पिकांसाठी योग्य अंतर राखून पेरणी केल्यास भरघोस उत्पादन मिळते.
+                </p>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 4: FERTILIZERS GUIDANCE ================= -->
+        <div class="page-view py-8 max-w-7xl mx-auto px-4" id="pageFertilizers">
+            <div class="max-w-3xl mx-auto bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                <h2 class="text-2xl font-bold text-slate-900" data-t="fertHead">खते व पोषण व्यवस्थापन</h2>
+                <p class="text-sm text-slate-600 leading-relaxed" data-t="fertDesc">
+                    जमिनीच्या सुपीकतेनुसार खतांची मात्रा द्या. पेरणीच्या वेळी रासायनिक खतांसोबत सूक्ष्म अन्नद्रव्ये (झिंक, सल्फर) वापरल्यास पिकांची रोगप्रतिकारक शक्ती वाढते.
+                </p>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 5: CONTACT US ================= -->
+        <div class="page-view py-8 max-w-7xl mx-auto px-4" id="pageContact">
+            <div class="max-w-3xl mx-auto bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                <h2 class="text-2xl font-bold text-slate-900" data-t="contactHead">संपर्क व पत्ता</h2>
+                <div class="text-sm text-slate-700 space-y-3 leading-relaxed">
+                    <p><strong data-t="compNameLbl">कंपनीचे नाव:</strong> BHUMANDALAM SEEDS PRODUCER COMPANY LIMITED</p>
+                    <p><strong data-t="headOffLbl">मुख्य कार्यालय:</strong> Near PHC, Pimpalgaon Peth, Tq. Sillod, Dist. Chhatrapati Sambhajinagar (Aurangabad) MH - 431135</p>
+                    <p><strong data-t="plantOffLbl">प्लांट पत्ता:</strong> Gut No 24, Pimpalgaon Peth, Tq. Sillod, Dist. Chhatrapati Sambhajinagar (Aurangabad) MH - 431135</p>
+                    <p><strong data-t="mobLbl">मोबाईल नंबर:</strong> +91-8530978413, +91-9970793829, +91-9834050594</p>
+                    <p><strong>Email:</strong> bhumandalamseeds@gmail.com</p>
+                </div>
+            </div>
         </div>
 
     </main>
 
     <!-- Footer -->
     <footer class="bg-slate-900 text-white py-6 mt-12">
-        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-400 space-y-1">
             <p>© 2026 भूमंडलम सीड्स प्रोड्युसर कंपनी लिमिटेड. सर्व हक्क सुरक्षित.</p>
-            <p class="mt-1">पिंपळगाव पेठ, ता. सिल्लोड, जि. छत्रपती संभाजीनगर | संपर्क: +91 8530978413</p>
+            <p data-t="footerContact">पिंपळगाव पेठ, ता. सिल्लोड, जि. छत्रपती संभाजीनगर | संपर्क: +91 8530978413</p>
         </div>
     </footer>
 
-    <!-- JavaScript code -->
+    <!-- JavaScript for Navigation, Quantities, Pricing & Multi-Language Support -->
     <script>
         function openPage(pageId) {
             const pages = document.querySelectorAll('.page-view');
@@ -233,6 +633,7 @@
             menu.classList.toggle('hidden');
         }
 
+        // Qty Update & Dynamic Price Calculation
         function updateQty(id, change, unitPrice) {
             const qtyElem = document.getElementById('qty-' + id);
             const totalElem = document.getElementById('total-' + id);
@@ -254,12 +655,196 @@
             const message = `🌾 *भूमंडलम सीड्स - ऑर्डर बुकिंग* 🌾\n\n` +
                             `📦 *उत्पादन:* ${productName}\n` +
                             `⚖️ *पॅकिंग:* ${packWeight}\n` +
-                            `🔢 *संख्या:* ${qty} बॅग\n` +
+                            `🔢 *संख्या:* ${qty} पॅक\n` +
                             `💰 *एकूण रक्कम:* ₹${totalAmount.toLocaleString('en-IN')}\n\n` +
-                            `कृपया ही ऑर्डर कन्फर्म करावी.`;
+                            `कृपया माझी ही ऑर्डर कन्फर्म करावी.`;
 
             const whatsappUrl = `https://wa.me/918530978413?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
+        }
+
+        const translations = {
+            mr: {
+                brandName: "भूमंडलम सीड्स", brandTagline: "शुद्ध बीज, समृद्ध किसान",
+                navHome: "मुखपृष्ठ", navProducts: "उत्पादने", navCrops: "पिकांची माहिती", navFertilizers: "खते मार्गदर्शन", navContact: "संपर्क",
+                whatsappBtn: "व्हॉट्सॲप ऑर्डर", homeBadge: "ISO 9001:2015 प्रमाणित कंपनी", homeTitle: "शुद्ध बीज, समृद्ध किसान",
+                homeDesc: "सोयाबीन, राजमा, तूर, उडीद, मूग, कांदा आणि सूर्यफूल बियाणे उत्पादक अग्रणी कंपनी.", homeBtn: "उत्पादने पहा",
+                prodHead: "आमची दर्जेदार बियाणे उत्पादने",
+                whatsappOrder: "व्हॉट्सॲपवर ऑर्डर करा", cropHead: "पिकांची लागवड व मार्गदर्शन",
+                cropDesc: "आमच्या सर्व बियाण्यांच्या उत्तम उगवण क्षमतेसाठी योग्य बीजप्रक्रिया करा. सोयाबीन, तूर, मूग व उडीद पिकांसाठी योग्य अंतर राखून पेरणी केल्यास भरघोस उत्पादन मिळते.",
+                fertHead: "खते व पोषण व्यवस्थापन", fertDesc: "जमिनीच्या सुपीकतेनुसार खतांची मात्रा द्या. पेरणीच्या वेळी रासायनिक खतांसोबत सूक्ष्म अन्नद्रव्ये (झिंक, सल्फर) वापरल्यास पिकांची रोगप्रतिकारक शक्ती वाढते.",
+                contactHead: "संपर्क व पत्ता", compNameLbl: "कंपनीचे नाव:", headOffLbl: "मुख्य कार्यालय:", plantOffLbl: "प्लांट पत्ता:", mobLbl: "मोबाईल नंबर:",
+                footerContact: "पिंपळगाव पेठ, ता. सिल्लोड, जि. छत्रपती संभाजीनगर | संपर्क: +91 8530978413",
+                priceLbl: "दर प्रति पॅक:", qtyLbl: "संख्या (Qty):", totalLbl: "एकूण किंमत:",
+                p1Title: "KDS 753 (फुले किमया) सोयाबीन", p1Desc: "• अवधी ९५ ते १०५ दिन<br>• उच्च रोगप्रतिकारक्षम, विविध रोगों के लिये सहनशील<br>• बोल्ड और आकर्षक बीज, अधिक उपज<br>• २५ किलो पॅक उपलब्ध",
+                p2Title: "MACS 1188 सोयाबीन", p2Desc: "• सफेद फूलों वाली और अच्छी उपज देने वाली किस्म<br>• फलियाँ पकने के बाद चटकती नहीं हैं<br>• अवधि १०५ दिन, २५ kg पैक",
+                p3Title: "KDS 992 (फुले दुर्वा) सोयाबीन", p3Desc: "• अवधी ९० ते १०० दिवस<br>• अधिक फुटाव व बोल्ड आकर्षक दाणे<br>• ५ KG आणि २० Kg पॅक",
+                p4Title: "KDS 726 (फुले संगम) सोयाबीन", p4Desc: "• अवधी १०५ ते ११० दिवस<br>• अधिक उपज देणारी जात<br>• २५ किलो पॅक",
+                p5Title: "DS 228 (फुले कल्याणी) सोयाबीन", p5Desc: "• उपज २५ ते ३० क्विंटल प्रती हेक्टर<br>• अवधी ९५ ते १०० दिवस<br>• २५ किलो पॅकेट",
+                p6Title: "AMS 100-39 (PDKV AMBA) सोयाबीन", p6Desc: "• लवकर पकडणारी जात (९४-९६ दिवस)<br>• उच्च तेल व प्रोटीन प्रमाण<br>• २५ किलो पॅक",
+                p7Title: "MACS 1281 सोयाबीन", p7Desc: "• जामुनी फुलांसह मोठे दाणे<br>• अवधी ९०-९५ दिवस<br>• २५ किलो पॅक",
+                p8Title: "फुले राजमा (पापा पेवडा)", p8Desc: "• बोल्ड बीज, पांढऱ्या पाठीवर गुलाबी डाग<br>• वय ७६ ते ८० दिवस<br>• २५ किलो पॅक",
+                p9Title: "BDN 711 तूर बियाणे", p9Desc: "• मध्यम ते भारी मातीसाठी योग्य<br>• अवधी १५० ते १५५ दिवस<br>• मशीन कटाईसाठी उपयुक्त",
+                p10Title: "BDN 716 तूर (विदर्भ लोकप्रिय)", p10Desc: "• विदर्भात सर्वाधिक लोकप्रिय जात<br>• अवधी १५५ ते १६० दिवस<br>• लाल दाने, बांझ रोगास प्रतिकारक",
+                p11Title: "उडीद: TAU-1 (काला चना)", p11Desc: "• यशस्वी व लोकप्रिय उडीद जात<br>• अवधी ६८ ते ७५ दिवस<br>• १ किलो पॅक",
+                p12Title: "मूग: BM-2003-02", p12Desc: "• अवधी ६० ते ७० दिवस<br>• चमकीला, गहरा हरा बोल्ड बीज<br>• १ किलो पॅक",
+                p13Title: "फुले समर्थ लाल कांदा बियाणे", p13Desc: "• हलक्या मातीसाठी उत्तम<br>• ३ किलो प्रति एकड़ बियाणे आवश्यक<br>• ५०० ग्रॅम पॅक",
+                p14Title: "फुले भास्कर सूर्यफूल बियाणे", p14Desc: "• लवकर पकडणारी जात (७५-८० दिवस)<br>• तेलाचे प्रमाण ३७-३८%<br>• २ किलो पॅक"
+            },
+            hi: {
+                brandName: "भूमंडलम सीड्स", brandTagline: "शुद्ध बीज, समृद्ध किसान",
+                navHome: "मुख पृष्ठ", navProducts: "उत्पादक", navCrops: "फसल जानकारी", navFertilizers: "उर्वरक मार्गदर्शन", navContact: "संपर्क",
+                whatsappBtn: "व्हाट्सएप ऑर्डर", homeBadge: "ISO 9001:2015 प्रमाणित कंपनी", homeTitle: "शुद्ध बीज, समृद्ध किसान",
+                homeDesc: "सोयाबीन, राजमा, तूर, उड़द, मूंग, प्याज और सूरजमुखी बीज उत्पादक अग्रणी कंपनी।", homeBtn: "उत्पादक देखें",
+                prodHead: "हमारे गुणवत्तापूर्ण बीज उत्पाद",
+                whatsappOrder: "व्हाट्सएप पर ऑर्डर करें", cropHead: "फसल की खेती और मार्गदर्शन",
+                cropDesc: "हमारे सभी बीजों की उत्तम अंकुरण क्षमता के लिए उचित बीज उपचार करें। सोयाबीन, तूर, मूंग और उड़द फसलों के लिए उचित दूरी रखकर बुवाई करने से बंपर पैदावार मिलती है।",
+                fertHead: "उर्वरक और पोषण प्रबंधन", fertDesc: "मिट्टी की उर्वरता के अनुसार उर्वरक दें। बुवाई के समय रासायनिक उर्वरकों के साथ सूक्ष्म पोषक तत्व (जस्ता, सल्फर) का उपयोग करने से फसलों की रोग प्रतिरोधक क्षमता बढ़ती है।",
+                contactHead: "संपर्क और पता", compNameLbl: "कंपनी का नाम:", headOffLbl: "मुख्य कार्यालय:", plantOffLbl: "प्लांट का पता:", mobLbl: "मोबाइल नंबर:",
+                footerContact: "पिंपळगाव पेठ, ता. सिल्लोड, जिला छत्रपती संभाजीनगर | संपर्क: +91 8530978413",
+                priceLbl: "दर प्रति पैक:", qtyLbl: "संख्या (Qty):", totalLbl: "कुल कीमत:",
+                p1Title: "KDS 753 (फुले किमया) सोयाबीन", p1Desc: "• अवधि ९५ से १०५ दिन<br>• उच्च रोगप्रतिकारक्षम, विविध रोगों के लिये सहनशील<br>• बोल्ड और आकर्षक बीज, अधिक उपज<br>• २५ किलो पैक उपलब्ध",
+                p2Title: "MACS 1188 सोयाबीन", p2Desc: "• सफेद फूलों वाली और अच्छी उपज देने वाली किस्म<br>• फलियाँ पकने के बाद चटकती नहीं हैं<br>• अवधि १०५ दिन, २५ kg पैक",
+                p3Title: "KDS 992 (फुले दुर्वा) सोयाबीन", p3Desc: "• अवधि ९० से १०० दिन<br>• अधिक मात्रा में फुटाव इसी कारण अधिक उपज<br>• ५ KG और २० Kg पैक",
+                p4Title: "KDS 726 (फुले संगम) सोयाबीन", p4Desc: "• अवधि १०५ से ११० दिन<br>• अधिक उपज देने वाली प्रजाती<br>• २५ किलो पैक",
+                p5Title: "DS 228 (फुले कल्याणी) सोयाबीन", p5Desc: "• उपज २५ से ३० क्विंटल प्रति हेक्टर<br>• अवधि ९५ से १०० दिन<br>• २५ किलो पैकेट",
+                p6Title: "AMS 100-39 (PDKV AMBA) सोयाबीन", p6Desc: "• जल्दी पकने वाली किस्म (९४-९६ दिन)<br>• उच्च तेल व प्रोटीन प्रमाण<br>• २५ किलो पैक",
+                p7Title: "MACS 1281 सोयाबीन", p7Desc: "• जामुनी फूलों के साथ बड़े दाने<br>• अवधि ९०-९५ दिन<br>• २५ किलो पैक",
+                p8Title: "फुले राजमा (पापा पेवडा)", p8Desc: "• बोल्ड बीज, सफेद बीज पर गुलाबी धब्बे<br>• उम्र ७६ से ८० दिन<br>• २५ किलो पैक",
+                p9Title: "BDN 711 तूर बियाणे", p9Desc: "• मध्यम से भारी मिट्टी के लिए उपयुक्त<br>• अवधि १५० से १५५ दिन<br>• मशीन कटाई के लिए उपयुक्त",
+                p10Title: "BDN 716 तूर (विदर्भ लोकप्रिय)", p10Desc: "• विदर्भ क्षेत्र में सबसे लोकप्रिय किस्म<br>• अवधि १५५ से १६० दिन<br>• लाल दाने, बांझ रोग प्रतिरोधी",
+                p11Title: "उडीद: TAU-1 (काला चना)", p11Desc: "• यशस्वी व लोकप्रिय उडीद जात<br>• अवधि ६८ से ७५ दिन<br>• १ किलो पैक",
+                p12Title: "मूग: BM-2003-02", p12Desc: "• अवधि ६० से ७० दिन<br>• चमकीला, गहरा हरा बोल्ड बीज<br>• १ किलो पैक",
+                p13Title: "फुले समर्थ लाल कांदा बियाणे", p13Desc: "• हल्की मिट्टी के लिए उत्तम<br>• ३ किलो प्रति एकड़ बीज आवश्यक<br>• ५०० ग्राम पैक",
+                p14Title: "फुले भास्कर सूर्यफूल बियाणे", p14Desc: "• जल्दी पकने वाली किस्म (७५-८० दिन)<br>• तेल की मात्रा ३७-३८%<br>• २ किलो पैक"
+            },
+            en: {
+                brandName: "Bhumandalam Seeds", brandTagline: "Pure Seeds, Prosperous Farmer",
+                navHome: "Home", navProducts: "Products", navCrops: "Crop Info", navFertilizers: "Fertilizers", navContact: "Contact",
+                whatsappBtn: "WhatsApp Order", homeBadge: "ISO 9001:2015 Certified Company", homeTitle: "Pure Seeds, Prosperous Farmer",
+                homeDesc: "Leading manufacturer and producer of Soybean, Rajmah, Tur, Udid, Moong, Onion, and Sunflower seeds.", homeBtn: "View Products",
+                prodHead: "Our Quality Seed Products",
+                whatsappOrder: "Order on WhatsApp", cropHead: "Crop Cultivation & Guidance",
+                cropDesc: "Perform proper seed treatment for high germination capacity of all our seeds. Maintain proper spacing for optimal yields.",
+                fertHead: "Fertilizer & Nutrition Management", fertDesc: "Apply fertilizers according to soil fertility. Use micronutrients during sowing to increase crop immunity.",
+                contactHead: "Contact & Address", compNameLbl: "Company Name:", headOffLbl: "Head Office:", plantOffLbl: "Plant Address:", mobLbl: "Mobile Number:",
+                footerContact: "Pimpalgaon Peth, Tq. Sillod, Dist. Chhatrapati Sambhajinagar | Contact: +91 8530978413",
+                priceLbl: "Price per pack:", qtyLbl: "Quantity (Qty):", totalLbl: "Total Price:",
+                p1Title: "KDS 753 Phule Kimaya Soybean", p1Desc: "• Duration 95-105 days<br>• High disease resistance<br>• Bold and attractive seeds<br>• 25 kg pack available",
+                p2Title: "MACS 1188 Soybean", p2Desc: "• White flowers high yielding variety<br>• Pod shattering resistant<br>• 105 days, 25 kg pack",
+                p3Title: "KDS 992 Phule Durva Soybean", p3Desc: "• Duration 90-100 days<br>• High branching and bold seeds<br>• 5 kg and 20 kg pack",
+                p4Title: "KDS 726 Phule Sangam Soybean", p4Desc: "• Duration 105-110 days<br>• High yielding variety<br>• 25 kg pack",
+                p5Title: "DS 228 Phule Kalyani Soybean", p5Desc: "• Yield 25-30 quintals/hectare<br>• Duration 95-100 days<br>• 25 kg packet",
+                p6Title: "AMS 100-39 PDKV Amba Soybean", p6Desc: "• Early maturing (94-96 days)<br>• High oil and protein content<br>• 25 kg pack",
+                p7Title: "MACS 1281 Soybean", p7Desc: "• Purple flowers bold seeds<br>• Duration 90-95 days<br>• 25 kg pack",
+                p8Title: "Phule Rajmah", p8Desc: "• Bold seeds, pink spots on white<br>• Age 76-80 days<br>• 25 kg pack",
+                p9Title: "BDN 711 Tur Seeds", p9Desc: "• Suitable for medium to heavy soil<br>• Duration 150-155 days<br>• Machine harvestable",
+                p10Title: "BDN 716 Tur", p10Desc: "• Most popular in Vidarbha region<br>• Duration 155-160 days<br>• Red grains, sterility mosaic resistant",
+                p11Title: "Udid TAU-1", p11Desc: "• Successful and popular variety<br>• Duration 68-75 days<br>• 1 kg pack",
+                p12Title: "Moong BM-2003-02", p12Desc: "• Duration 60-70 days<br>• Shiny dark green bold seeds<br>• 1 kg pack",
+                p13Title: "Phule Samarth Red Onion Seeds", p13Desc: "• Best for light soils<br>• 3 kg seed/acre required<br>• 500g pack",
+                p14Title: "Phule Bhaskar Sunflower Seeds", p14Desc: "• Early maturing (75-80 days)<br>• Oil content 37-38%<br>• 2 kg pack"
+            },
+            ta: {
+                brandName: "பூமண்டலம் விதைகள்", brandTagline: "தூய விதைகள், வளமான விவசாயி",
+                navHome: "முகப்பு", navProducts: "தயாரிப்புகள்", navCrops: "பயிர் தகவல்", navFertilizers: "உர வழிகாட்டி", navContact: "தொடர்பு",
+                whatsappBtn: "வாட்ஸ்அப் ஆர்டர்", homeBadge: "ISO 9001:2015 சான்றளிக்கப்பட்ட நிறுவனம்", homeTitle: "தூய விதைகள், வளமான விவசாயி",
+                homeDesc: "சோயாபீன், ராஜ்மா, துவரை, உளுந்து, பாசிப்பருப்பு, வெங்காயம் மற்றும் சூரியகாந்தி விதை உற்பத்தியாளர்.", homeBtn: "தயாரிப்புகளை காண்க",
+                prodHead: "எங்கள் தரமான விதை தயாரிப்புகள்",
+                whatsappOrder: "வாட்ஸ்அப்பில் ஆர்டர் செய்யவும்", cropHead: "பயிர் சாகுபடி வழிகாட்டுதல்",
+                cropDesc: "சிறந்த முளைப்புத்திறனுக்காக சரியான விதை நேர்த்தி செய்யவும்.",
+                fertHead: "உரம் மற்றும் ஊட்டச்சத்து மேலாண்மை", fertDesc: "மண்ணின் வளத்திற்கு ஏற்ப உரங்களை இடவும்.",
+                contactHead: "தொடர்பு மற்றும் முகவரி", compNameLbl: "நிறுவனத்தின் பெயர்:", headOffLbl: "தலைமையகம்:", plantOffLbl: "ஆலை முகவரி:", mobLbl: "கைபேசி எண்:",
+                footerContact: "பிம்பல்கான் பெத், சில்लोड, சத்ரபதி சம்பாநகர் | தொடர்பு: +91 8530978413",
+                priceLbl: "விலை:", qtyLbl: "அளவு (Qty):", totalLbl: "மொத்த விலை:",
+                p1Title: "KDS 753 சோயாபீன்", p1Desc: "• காலம் 95-105 நாட்கள்<br>• அதிக நோய் எதிர்ப்பு சக்தி<br>• 25 கிலோ பேக்",
+                p2Title: "MACS 1188 சோயாபீன்", p2Desc: "• வெள்ளை பூக்கள் அதிக மகசூல்<br>• 105 நாட்கள், 25 kg",
+                p3Title: "KDS 992 சோயாபீன்", p3Desc: "• காலம் 90-100 நாட்கள்<br>• 5 kg மற்றும் 20 kg",
+                p4Title: "KDS 726 சோயாபீன்", p4Desc: "• காலம் 105-110 நாட்கள்<br>• 25 கிலோ பேக்",
+                p5Title: "DS 228 சோயாபீன்", p5Desc: "• மகசூல் 25-30 குவிண்டால்<br>• 25 கிலோ பேக்கெட்",
+                p6Title: "AMS 100-39 சோயாபீன்", p6Desc: "• விரைவான முதிர்வு (94-96 நாட்கள்)<br>• 25 கிலோ பேக்",
+                p7Title: "MACS 1281 சோயாபீன்", p7Desc: "• ஊதா பூக்கள் பெரிய விதைகள்<br>• 25 கிலோ பேக்",
+                p8Title: "புலே ராஜ்மா", p8Desc: "• பெரிய விதைகள், இளஞ்சிவப்பு புள்ளிகள்<br>• 25 கிலோ பேக்",
+                p9Title: "BDN 711 துவரை", p9Desc: "• நடுத்தர முதல் களிமண் மண்<br>• இயந்திர அறுவடைக்கு ஏற்றது",
+                p10Title: "BDN 716 துவரை", p10Desc: "• விதர்பா பகுதியில் மிகவும் பிரபலமானது<br>• 155-160 நாட்கள்",
+                p11Title: "உளுந்து TAU-1", p11Desc: "• பிரபலமான உளுந்து ரகம்<br>• 68-75 நாட்கள்",
+                p12Title: "பாசிப்பருப்பு BM-2003-02", p12Desc: "• 60-70 நாட்கள்<br>• அடர்ந்த பச்சை விதைகள்",
+                p13Title: "புலே சமர்த் வெங்காய விதை", p13Desc: "• லேசான மண்ணுக்கு சிறந்தது<br>• 500g பேக்",
+                p14Title: "புலே பாஸ்கர் சூரியகாந்தி", p14Desc: "• 75-80 நாட்கள்<br>• எண்ணெய் சத்து 37-38%"
+            },
+            te: {
+                brandName: "భూమండలం సీడ్స్", brandTagline: "शुद्ध बीज, समृद्ध किसान",
+                navHome: "హోమ్", navProducts: "ఉత్పత్తులు", navCrops: "పంట సమాచారం", navFertilizers: "ఎరువుల మార్గదర్శకం", navContact: "సంప్రదించండి",
+                whatsappBtn: "వాట్సాప్ ఆర్డర్", homeBadge: "ISO 9001:2015 సర్టిఫైడ్ కంపెనీ", homeTitle: "शुద్ధ బీజ్, సమృద్ధి కిసాన్",
+                homeDesc: "సోయాబీన్, రాజ్మా, కంది, మినప, పెసర, ఉల్లి మరియు సూర్యకాంతి విత్తనాల ప్రముఖ తయారీదారులు.", homeBtn: "ఉత్పత్తులను వీక్షించండి",
+                prodHead: "మా నాణ్యమైన విత్తన ఉత్పత్తులు",
+                whatsappOrder: "వాట్సాప్‌లో ఆర్డర్ చేయండి", cropHead: "పంట సాగు మార్గదర్శకత్వం",
+                cropDesc: "మంచి మొలకశక్తి కోసం సరైన విత్తన శుద్ధి చేయండి.",
+                fertHead: "ఎరువుల యాజమాన్యం", fertDesc: "నేల యొక్క సారాన్ని బట్టి ఎరువులు వేయండి.",
+                contactHead: "సంప్రదించండి & చిరునామా", compNameLbl: "కంపెనీ పేరు:", headOffLbl: "ప్రధాన కార్యాలయం:", plantOffLbl: "ప్లాంట్ చిరునామా:", mobLbl: "మొబైల్ నంబర్:",
+                footerContact: "పింపల్‌గావ్ పెత్, సిల్లోడ్, ఛత్రపతి संभाజీనగర్ | సంప్రదించండి: +91 8530978413",
+                priceLbl: "ధర:", qtyLbl: "పరిమాణం (Qty):", totalLbl: "మొత్తం ధర:",
+                p1Title: "KDS 753 సోయాబీన్", p1Desc: "• కాలపరిమితి 95-105 రోజులు<br>• అధిక రోగ నిరోధక శక్తి<br>• 25 కిలోల ప్యాక్",
+                p2Title: "MACS 1188 సోయాబీన్", p2Desc: "• తెల్లటి పువ్వులు అధిక దిగుబడి<br>• 105 రోజులు, 25 kg",
+                p3Title: "KDS 992 సోయాబీన్", p3Desc: "• కాలపరిమితి 90-100 రోజులు<br>• 5 kg మరియు 20 kg",
+                p4Title: "KDS 726 సోయాబీన్", p4Desc: "• కాలపరిమితి 105-110 రోజులు<br>• 25 కిలోల ప్యాక్",
+                p5Title: "DS 228 సోయాబీన్", p5Desc: "• దిగుబడి 25-30 క్వింటాళ్లు<br>• 25 కిలోల ప్యాకెట్",
+                p6Title: "AMS 100-39 సోయాబీన్", p6Desc: "• త్వరగా పక్వానికి వచ్చే రకం<br>• 25 కిలోల ప్యాక్",
+                p7Title: "MACS 1281 సోయాబీన్", p7Desc: "• ఊదా రంగు పువ్వులు పెద్ద గింజలు<br>• 25 కిలోల ప్యాక్",
+                p8Title: "ఫూలే రాజ్మా", p8Desc: "• పెద్ద గింజలు, గులాబీ మచ్చలు<br>• 25 కిలోల ప్యాక్",
+                p9Title: "BDN 711 కంది విత్తనాలు", p9Desc: "• మధ్యస్థ నేలలకు అనుకూలం<br>• మెషిన్ కోతకు అనుకూలం",
+                p10Title: "BDN 716 కంది", p10Desc: "• విదర్భ ప్రాంతంలో అత్యంత ప్రసిద్ధమైనది<br>• 155-160 రోజులు",
+                p11Title: "మినప TAU-1", p11Desc: "• ప్రసిద్ధ మినప రకం<br>• 68-75 రోజులు",
+                p12Title: "పెసర BM-2003-02", p12Desc: "• 60-70 రోజులు<br>• మెరిసే ముదురు ఆకుపచ్చ గింజలు",
+                p13Title: "ఫూలే సమర్త్ ఉల్లి విత్తనాలు", p13Desc: "• తేలికపాటి నేలలకు ఉత్తమం<br>• 500g ప్యాక్",
+                p14Title: "ఫూలే భాస్కర్ సూర్యకాంతి", p14Desc: "• 75-80 రోజులు<br>• నూనె శాతం 37-38%"
+            },
+            kn: {
+                brandName: "ಭೂಮಂಡಲಂ ಸೀಡ್ಸ್", brandTagline: "ಶುದ್ಧ ಬೀಜ, ಸಮೃದ್ಧ ಕಿಸಾನ್",
+                navHome: "ಮುಖಪುಟ", navProducts: "ಉತ್ಪನ್ನಗಳು", navCrops: "ಬೆಳೆ ಮಾಹಿತಿ", navFertilizers: "ರೋಗ ಮಾರ್ಗದರ್ಶನ", navContact: "ಸಂಪರ್ಕಿಸಿ",
+                whatsappBtn: "ವಾಟ್ಸಾಪ್ ಆರ್ಡರ್", homeBadge: "ISO 9001:2015 ಪ್ರಮಾಣೀಕೃತ ಕಂಪನಿ", homeTitle: "ಶುದ್ಧ ಬೀಜ, ಸಮೃದ್ಧ ಕಿಸಾನ್",
+                homeDesc: "ಸೋಯಾಬಿನ್, ರಾಜ್ಮಾ, ತೊಗರಿ, ಉದ್ದು, ಹೆಸರು, ಈರುಳ್ಳಿ ಮತ್ತು ಸೂರ್ಯಕಾಂತಿ ಬೀಜಗಳ ಪ್ರಮುಖ ಉತ್ಪಾದಕರು.", homeBtn: "ಉತ್ಪನ್ನಗಳನ್ನು ನೋಡಿ",
+                prodHead: "ನಮ್ಮ ಗುಣಮಟ್ಟದ ಬೀಜ ಉತ್ಪನ್ನಗಳು",
+                whatsappOrder: "ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಆರ್ಡರ್ ಮಾಡಿ", cropHead: "ಬೆಳೆ ಕೃಷಿ ಮಾರ್ಗದರ್ಶನ",
+                cropDesc: "ಉತ್ತಮ ಮೊಳಕೆ ಸಾಮರ್ಥ್ಯಕ್ಕಾಗಿ ಸರಿಯಾದ ಬೀಜೋಪಚಾರ ಮಾಡಿ.",
+                fertHead: "ರೋಗ ಮತ್ತು ಪೋಷಕಾಂಶ ನಿರ್ವಹಣೆ", fertDesc: "ಮಣ್ಣಿನ ಫಲವತ್ತತೆಗೆ ತಕ್ಕಂತೆ ರೋಗಗಳನ್ನು ನೀಡಿ.",
+                contactHead: "ಸಂಪರ್ಕ ಮತ್ತು ವಿಳಾಸ", compNameLbl: "ಕಂಪನಿಯ ಹೆಸರು:", headOffLbl: "ಮುಖ್ಯ ಕಚೇರಿ:", plantOffLbl: "ಪ್ಲಾಂಟ್ ವಿಳಾಸ:", mobLbl: "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ:",
+                footerContact: "ಪಿಂಪಲ್ಗಾಂವ್ ಪೆಥ್, ಸಿಲ್ಲೊಡ್, ಛತ್ರಪತಿ ಸಂಭಾಜಿನಗರ | ಸಂಪರ್ಕ: +91 8530978413",
+                priceLbl: "ಬೆಲೆ:", qtyLbl: "ಪ್ರಮಾಣ (Qty):", totalLbl: "ಒಟ್ಟು ಬೆಲೆ:",
+                p1Title: "KDS 753 ಸೋಯಾಬಿನ್", p1Desc: "• ಅವಧಿ 95-105 ದಿನಗಳು<br>• ಹೆಚ್ಚಿನ ರೋಗ ನಿರೋಧಕ ಶಕ್ತಿ<br>• 25 ಕೆಜಿ ಪ್ಯಾಕ್",
+                p2Title: "MACS 1188 ಸೋಯಾಬಿನ್", p2Desc: "• ಬಿಳಿ ಹೂವುಗಳು ಅಧಿಕ ಇಳುವರಿ<br>• 105 ದಿನಗಳು, 25 kg",
+                p3Title: "KDS 992 ಸೋಯಾಬಿನ್", p3Desc: "• ಅವಧಿ 90-100 ದಿನಗಳು<br>• 5 kg ಮತ್ತು 20 kg",
+                p4Title: "KDS 726 ಸೋಯಾಬಿನ್", p4Desc: "• ಅವಧಿ 105-110 ದಿನಗಳು<br>• 25 ಕೆಜಿ ಪ್ಯಾಕ್",
+                p5Title: "DS 228 ಸೋಯಾಬಿನ್", p5Desc: "• ಇಳುವರಿ 25-30 ಕ್ವಿಂಟಾಲ್<br>• 25 ಕೆಜಿ ಪ್ಯಾಕೆಟ್",
+                p6Title: "AMS 100-39 ಸೋಯಾಬಿನ್", p6Desc: "• ಬೇಗನೆ ಬರುವ ತಳಿ (94-96 ದಿನಗಳು)<br>• 25 ಕೆಜಿ ಪ್ಯಾಕ್",
+                p7Title: "MACS 1281 ಸೋಯಾಬಿನ್", p7Desc: "• ನೇರಳೆ ಹೂವುಗಳು ದೊಡ್ಡ ಕಾಳುಗಳು<br>• 25 ಕೆಜಿ ಪ್ಯಾಕ್",
+                p8Title: "ಫುಲೆ ರಾಜ್ಮಾ", p8Desc: "• ದೊಡ್ಡ ಬೀಜಗಳು, ಗುಲಾಬಿ ಚುಕ್ಕೆಗಳು<br>• 25 ಕೆಜಿ ಪ್ಯಾಕ್",
+                p9Title: "BDN 711 ತೊಗರಿ ಬೀಜಗಳು", p9Desc: "• ಮಧ್ಯಮದಿಂದ ಭಾರವಾದ ಮಣ್ಣಿಗೆ ಸೂಕ್ತ<br>• ಯಂತ್ರ ಕೊಯ್ಲಿಗೆ ಸೂಕ್ತ",
+                p10Title: "BDN 716 ತೊಗರಿ", p10Desc: "• ವಿದರ್ಭ ಪ್ರದೇಶದಲ್ಲಿ ಹೆಚ್ಚು ಜನಪ್ರಿಯ<br>• 155-160 ದಿನಗಳು",
+                p11Title: "ಉದ್ದು TAU-1", p11Desc: "• ಜನಪ್ರಿಯ ಉದ್ದು ತಳಿ<br>• 68-75 ದಿನಗಳು",
+                p12Title: "ಹೆಸರುಕಾಳು BM-2003-02", p12Desc: "• 60-70 ದಿನಗಳು<br>• ಹೊಳೆಯುವ ಗಾಢ ಹಸಿರು ಬೀಜಗಳು",
+                p13Title: "ಫುಲೆ ಸಮರ್ಥ ಈರುಳ್ಳಿ ಬೀಜ", p13Desc: "• ಲಘು ಮಣ್ಣಿಗೆ ಉತ್ತಮ<br>• 500g ಪ್ಯಾಕ್",
+                p14Title: "ಫುಲೆ ಭಾಸ್ಕರ್ ಸೂರ್ಯಕಾಂತಿ", p14Desc: "• 75-80 ದಿನಗಳು<br>• ಎಣ್ಣೆ ಅಂಶ 37-38%"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const dict = translations[lang];
+            if (!dict) return;
+            document.querySelectorAll('[data-t]').forEach(el => {
+                const key = el.getAttribute('data-t');
+                if (dict[key]) {
+                    el.innerText = dict[key];
+                }
+            });
+            // Update dynamic product titles and descriptions based on language dictionary
+            for (let i = 1; i <= 14; i++) {
+                const titleEl = document.querySelector(`[data-t="p${i}Title"]`);
+                const descEl = document.querySelector(`[data-t="p${i}Desc"]`);
+                if (titleEl && dict[`p${i}Title`]) titleEl.innerText = dict[`p${i}Title`];
+                if (descEl && dict[`p${i}Desc`]) descEl.innerHTML = dict[`p${i}Desc`];
+            }
+            document.getElementById('htmlRoot').setAttribute('lang', lang);
         }
     </script>
 </body>
