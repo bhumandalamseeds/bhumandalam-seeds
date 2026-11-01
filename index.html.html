@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html lang='mr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'/>
+    <title><data:blog.pageTitle/></title>
+
+    <!-- Blogger Required Skin Tag -->
+    <b:skin><![CDATA[
+        body { font-family: 'Poppins', 'Inter', sans-serif; margin: 0; padding: 0; background-color: #f8fafc; -webkit-tap-highlight-color: transparent; }
+        .page-view { display: none; }
+        .page-view.active-page { display: block; animation: fadeIn 0.25s ease-in-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .widget { margin: 0; padding: 0; }
+    ]]></b:skin>
+
+    <!-- Tailwind CSS CDN -->
+    <script src='https://cdn.tailwindcss.com'></script>
+    <!-- Inter & Poppins Fonts -->
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap' rel='stylesheet'/>
+    <!-- FontAwesome Icons -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        agri: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class='bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between'>
+
+    <!-- Header & Navigation -->
+    <header class='bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 shadow-sm'>
+        <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between'>
+            
+            <!-- Brand Logo -->
+            <div class='flex items-center space-x-2 sm:space-x-3 cursor-pointer' onclick="openPage('pageHome')">
+                <img alt='भूमंडलम सीड्स लोगो' class='w-12 h-12 sm:w-16 sm:h-16 object-contain' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_1L-t58U_bGiO5jpDYqevw4sFui4AUDm2tjE2usi-jIYR2tYoEz2GPJqv8uWQIzznzTEaccz1XqxJNYh6sK1c2GARwFp9DkgLO1zqcN0737ZiXvXEiSwkMmhHFedGGEU2K6xnsiu4eJCVl2enqy8c6tjWULlF34IwZVsGJQEtTRrW_BbOCwPEJVW0hSI/s320/bhum%20logo.png'/>
+                <div>
+                    <h1 class='font-bold text-base sm:text-xl text-slate-900 tracking-tight leading-tight'>भूमंडलम सीड्स</h1>
+                    <p class='text-[10px] sm:text-xs text-agri-700 font-medium'>शुद्ध बीज, समृद्ध किसान</p>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class='hidden md:flex items-center space-x-1 lg:space-x-2'>
+                <button class='px-4 py-2 text-sm font-semibold text-agri-700 bg-agri-50 rounded-xl transition flex items-center space-x-2' id='navHome' onclick="openPage('pageHome')">
+                    <i class='fa-solid fa-house'></i><span>मुखपृष्ठ</span>
+                </button>
+                <button class='px-4 py-2 text-sm font-semibold text-slate-600 hover:text-agri-700 hover:bg-slate-100 rounded-xl transition flex items-center space-x-2' id='navProducts' onclick="openPage('pageProducts')">
+                    <i class='fa-solid fa-cart-shopping'></i><span>आमची उत्पादने (10)</span>
+                </button>
+                <button class='px-4 py-2 text-sm font-semibold text-slate-600 hover:text-agri-700 hover:bg-slate-100 rounded-xl transition flex items-center space-x-2' id='navCrops' onclick="openPage('pageCrops')">
+                    <i class='fa-solid fa-wheat-awn'></i><span>विविध पिकांची माहिती</span>
+                </button>
+                <button class='px-4 py-2 text-sm font-semibold text-slate-600 hover:text-agri-700 hover:bg-slate-100 rounded-xl transition flex items-center space-x-2' id='navFertilizers' onclick="openPage('pageFertilizers')">
+                    <i class='fa-solid fa-flask'></i><span>खतांची माहिती</span>
+                </button>
+            </nav>
+
+            <!-- Quick Action / Contact CTA -->
+            <div class='hidden sm:flex items-center space-x-3'>
+                <a class='px-4 py-2.5 text-sm font-semibold text-white bg-agri-600 hover:bg-agri-700 rounded-xl shadow-md shadow-agri-600/20 transition flex items-center space-x-2' href='https://wa.me/918530978413?text=नमस्कार,%20मला%20बियाणे%20खरेदी%20करण्याबाबत%20माहिती%20हवी%20आहे.' target='_blank'>
+                    <i class='fa-brands fa-whatsapp text-lg'></i><span>व्हॉट्सॲप ऑर्डर</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <div class='md:hidden flex items-center'>
+                <button class='p-2 sm:p-2.5 rounded-xl bg-slate-100 text-slate-700 active:bg-slate-200 transition focus:outline-none' onclick='toggleMobileMenu()'>
+                    <i class='fa-solid fa-bars text-lg'></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div class='hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 shadow-lg' id='mobileMenu'>
+            <button class='w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 active:bg-agri-50 active:text-agri-700 flex items-center space-x-3' onclick="openPage('pageHome'); toggleMobileMenu();">
+                <i class='fa-solid fa-house w-5 text-agri-600'></i><span>मुखपृष्ठ</span>
+            </button>
+            <button class='w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 active:bg-agri-50 active:text-agri-700 flex items-center space-x-3' onclick="openPage('pageProducts'); toggleMobileMenu();">
+                <i class='fa-solid fa-cart-shopping w-5 text-agri-600'></i><span>आमची उत्पादने</span>
+            </button>
+            <button class='w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 active:bg-agri-50 active:text-agri-700 flex items-center space-x-3' onclick="openPage('pageCrops'); toggleMobileMenu();">
+                <i class='fa-solid fa-wheat-awn w-5 text-agri-600'></i><span>पिकांची माहिती</span>
+            </button>
+            <button class='w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 active:bg-agri-50 active:text-agri-700 flex items-center space-x-3' onclick="openPage('pageFertilizers'); toggleMobileMenu();">
+                <i class='fa-solid fa-flask w-5 text-agri-600'></i><span>खतांची माहिती</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class='flex-grow'>
+
+        <!-- ================= PAGE 1: HOME PAGE ================= -->
+        <div class='page-view active-page' id='pageHome'>
+            <div class='relative bg-gradient-to-br from-slate-900 via-agri-950 to-agri-900 text-white overflow-hidden py-10 sm:py-16 lg:py-24 px-4'>
+                <div class='max-w-7xl mx-auto relative z-10'>
+                    <div class='grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center'>
+                        <div class='lg:col-span-7 space-y-4 sm:space-y-6 text-center sm:text-left'>
+                            <span class='inline-flex items-center space-x-2 bg-agri-800/80 border border-agri-600/50 text-agri-300 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide uppercase'>
+                                <i class='fa-solid fa-star text-yellow-400'></i><span>प्रगतशील व उच्च उत्पादनक्षम बियाणे</span>
+                            </span>
+                            
+                            <h2 class='text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-yellow-400'>
+                                शुद्ध बीज, <br/><span class='text-amber-300'>समृद्ध किसान</span>
+                            </h2>
+
+                            <p class='text-xs sm:text-lg text-slate-300 font-light leading-relaxed max-w-2xl'>
+                                भूमंडलम सीड्स घेऊन आले आहे उच्च गुणवत्तापूर्ण, रोगप्रतिकारक आणि भरघोस उत्पादन देणारे दर्जेदार वाण. आता तुमच्या शेतासाठी घरबसल्या ऑर्डर करा.
+                            </p>
+                            <div class='flex flex-col sm:flex-row gap-3 pt-2 justify-center sm:justify-start'>
+                                <button class='w-full sm:w-auto px-6 py-3.5 bg-agri-500 active:bg-agri-600 text-white font-semibold rounded-2xl shadow-lg shadow-agri-600/30 transition flex items-center justify-center space-x-2' onclick="openPage('pageProducts')">
+                                    <span>आमची १० उत्पादने खरेदी करा</span><i class='fa-solid fa-cart-shopping'></i>
+                                </button>
+                                <button class='w-full sm:w-auto px-6 py-3.5 bg-white/10 active:bg-white/20 text-white font-semibold rounded-2xl backdrop-blur-md border border-white/15 transition flex items-center justify-center space-x-2' onclick="openPage('pageCrops')">
+                                    <span>पिकांची माहिती</span><i class='fa-solid fa-wheat-awn'></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class='lg:col-span-5 flex justify-center'>
+                            <div class='relative w-full max-w-md bg-gradient-to-b from-agri-800 to-slate-900 rounded-3xl p-5 sm:p-6 border border-agri-700/50 shadow-2xl space-y-4 sm:space-y-6'>
+                                <div class='flex items-center justify-between border-b border-agri-800 pb-3 sm:pb-4'>
+                                    <div class='flex items-center space-x-3'>
+                                        <div class='w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-yellow-400 text-slate-950 flex items-center justify-center font-bold'>
+                                            <i class='fa-solid fa-bolt'></i>
+                                        </div>
+                                        <div>
+                                            <h4 class='font-bold text-xs sm:text-sm text-white'>शेतकरी बुकिंग केंद्र</h4>
+                                            <p class='text-[10px] sm:text-xs text-agri-300'>थेट घरपोच डिलिव्हरी</p>
+                                        </div>
+                                    </div>
+                                    <span class='text-[10px] sm:text-xs bg-agri-900 text-agri-400 px-2 sm:px-2.5 py-1 rounded-full font-medium'>2026 अपडेट</span>
+                                </div>
+                                <div class='space-y-2.5 sm:space-y-3'>
+                                    <div class='p-3 sm:p-3.5 rounded-2xl bg-white/5 border border-white/5 flex items-start space-x-3'>
+                                        <i class='fa-solid fa-circle-check text-agri-400 mt-0.5 text-sm sm:text-base'></i>
+                                        <div>
+                                            <div class='text-xs font-semibold text-white'>१००% मूळ व प्रमाणित बियाणे</div>
+                                            <div class='text-[10px] sm:text-[11px] text-slate-400 mt-0.5'>उच्च उगवण क्षमता आणि उत्तम पॅकिंग.</div>
+                                        </div>
+                                    </div>
+                                    <div class='p-3 sm:p-3.5 rounded-2xl bg-white/5 border border-white/5 flex items-start space-x-3'>
+                                        <i class='fa-solid fa-truck-fast text-agri-400 mt-0.5 text-sm sm:text-base'></i>
+                                        <div>
+                                            <div class='text-xs font-semibold text-white'>सोपी व्हॉट्सॲप ऑर्डर सुविधा</div>
+                                            <div class='text-[10px] sm:text-[11px] text-slate-400 mt-0.5'>एका क्लिकवर थेट व्हॉट्सॲपवर ऑर्डर करा.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class='w-full py-3 bg-agri-600 active:bg-agri-700 text-white font-semibold rounded-xl text-xs sm:text-sm transition text-center shadow' onclick="openPage('pageProducts')">
+                                    सर्व १० उत्पादने पहा व खरेदी करा
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 2: PRODUCTS PAGE (स्वतंत्र पेज) ================= -->
+        <div class='page-view py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' id='pageProducts'>
+            <div class='flex items-center justify-between mb-6'>
+                <button onclick="openPage('pageHome')" class='text-xs font-bold text-agri-700 bg-agri-50 px-4 py-2 rounded-xl hover:bg-agri-100 transition flex items-center space-x-2'>
+                    <i class='fa-solid fa-arrow-left'></i><span>मुख्य पानावर जा</span>
+                </button>
+                <span class='text-xs text-slate-500 font-medium'>१० दर्जेदार उत्पादने उपलब्ध</span>
+            </div>
+
+            <div class='text-center max-w-2xl mx-auto mb-8 sm:mb-10'>
+                <span class='text-[10px] sm:text-xs uppercase font-bold tracking-widest text-agri-600 bg-agri-50 px-3 py-1 rounded-full border border-agri-200'>ऑनलाइन खरेदी कॅटलॉग</span>
+                <h2 class='text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2'>भूमंडलम सीड्स १० मुख्य उत्पादने</h2>
+                <p class='text-xs sm:text-sm text-slate-500 mt-2'>हवी असलेली बॅग संख्या (Qty) निवडा. किंमत स्वयंचलित जोडली जाईल आणि थेट व्हॉट्सॲपवर ऑर्डर नोंदवा.</p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+                
+                <!-- 1. सोयाबीन (फुले दुर्वा) -->
+                <div class='bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition p-card' id='card-1'>
+                    <div>
+                        <img alt='फुले दुर्वा सोयाबीन बियाणे' class='w-full h-48 object-cover' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoyyctmp5WH402s_wCnBreWrkHrEBWadDTpYyd8gR-uVwgX9oXXN2DYSmCci-EVevYyivU8QALAfnjuuD1QKdPqhyo7PK9nOsJw0K4mPvJ7LiQp4IekNr3wwiPbeSv9-Vxcmgx60Bq0NOMiJEuj23wWFgxLpifDlKVFlnYzrXkBeGmEUrU-hvlSsBsTB4/s1600/DURVA.jpg'/>
+                        <div class='p-5 space-y-3'>
+                            <div class='flex items-center justify-between'>
+                                <span class='text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full'>प्रमाणित बियाणे</span>
+                                <span class='text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md'><i class='fa-solid fa-weight-hanging mr-1'></i>३० किलो बॅग</span>
+                            </div>
+                            <h3 class='text-lg font-bold text-slate-900'>१. भूमंडलम सोयाबीन (KDS 992 फुले दुर्वा)</h3>
+                            <p class='text-xs text-slate-600 leading-relaxed'>• दाणे मोठे, टपोरे, सुवर्ण रंगाचे.<br/>• १०० दाण्यांचे वजन १४ ते १६ ग्रॅम.</p>
+                            <div class='pt-2 border-t border-slate-100 flex items-center justify-between'>
+                                <div>
+                                    <span class='text-[10px] text-slate-400 block'>दर प्रति बॅग:</span>
+                                    <span class='text-base font-extrabold text-agri-800'>₹२,२५०</span>
+                                </div>
+                                <div class='flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl'>
+                                    <button onclick="updateQty(1, -1, 2250)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>-</button>
+                                    <span id='qty-1' class='w-6 text-center font-bold text-sm'>1</span>
+                                    <button onclick="updateQty(1, 1, 2250)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='p-5 pt-0 space-y-2'>
+                        <div class='bg-agri-50 p-2.5 rounded-xl flex items-center justify-between text-xs font-bold text-agri-900'>
+                            <span>एकूण किंमत:</span>
+                            <span id='total-1' class='text-sm text-agri-700'>₹२,२५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('१. भूमंडलम सोयाबीन (KDS 992 फुले दुर्वा)', '३० किलो बॅग', 1, 2250)" class='w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition flex items-center justify-center space-x-2 shadow-md text-xs'>
+                            <i class='fa-brands fa-whatsapp text-base'></i>
+                            <span>व्हॉट्सॲपवर खरेदी करा</span>
+                        </button>
+                        <button onclick="shareProduct('१. भूमंडलम सोयाबीन (KDS 992 फुले दुर्वा)', '३० किलो बॅग - ₹२,२५०', 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoyyctmp5WH402s_wCnBreWrkHrEBWadDTpYyd8gR-uVwgX9oXXN2DYSmCci-EVevYyivU8QALAfnjuuD1QKdPqhyo7PK9nOsJw0K4mPvJ7LiQp4IekNr3wwiPbeSv9-Vxcmgx60Bq0NOMiJEuj23wWFgxLpifDlKVFlnYzrXkBeGmEUrU-hvlSsBsTB4/s1600/DURVA.jpg')" class='w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition flex items-center justify-center space-x-2 text-xs'>
+                            <i class='fa-solid fa-share-nodes text-agri-600'></i>
+                            <span>माहिती शेअर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2. सोयाबीन (JS 9560) -->
+                <div class='bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition p-card' id='card-2'>
+                    <div>
+                        <img alt='सोयाबीन बियाणे' class='w-full h-48 object-cover' src='https://images.unsplash.com/photo-1599598425947-020645323005'/>
+                        <div class='p-5 space-y-3'>
+                            <div class='flex items-center justify-between'>
+                                <span class='text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full'>कमकालावधी वाण</span>
+                                <span class='text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md'><i class='fa-solid fa-weight-hanging mr-1'></i>३० किलो बॅग</span>
+                            </div>
+                            <h3 class='text-lg font-bold text-slate-900'>२. भूमंडलम सोयाबीन (JS-9560 ॲडव्हान्स)</h3>
+                            <p class='text-xs text-slate-600 leading-relaxed'>• कम कालावधीत (८५-९० दिवस) तयार होणारा वाण.<br/>• शेंगा गळत नाहीत आणि भरपूर उत्पादन.</p>
+                            <div class='pt-2 border-t border-slate-100 flex items-center justify-between'>
+                                <div>
+                                    <span class='text-[10px] text-slate-400 block'>दर प्रति बॅग:</span>
+                                    <span class='text-base font-extrabold text-agri-800'>₹२,१५०</span>
+                                </div>
+                                <div class='flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl'>
+                                    <button onclick="updateQty(2, -1, 2150)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>-</button>
+                                    <span id='qty-2' class='w-6 text-center font-bold text-sm'>1</span>
+                                    <button onclick="updateQty(2, 1, 2150)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='p-5 pt-0 space-y-2'>
+                        <div class='bg-agri-50 p-2.5 rounded-xl flex items-center justify-between text-xs font-bold text-agri-900'>
+                            <span>एकूण किंमत:</span>
+                            <span id='total-2' class='text-sm text-agri-700'>₹२,१५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('२. भूमंडलम सोयाबीन (JS-9560 ॲडव्हान्स)', '३० किलो बॅग', 2, 2150)" class='w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition flex items-center justify-center space-x-2 shadow-md text-xs'>
+                            <i class='fa-brands fa-whatsapp text-base'></i>
+                            <span>व्हॉट्सॲपवर खरेदी करा</span>
+                        </button>
+                        <button onclick="shareProduct('२. भूमंडलम सोयाबीन (JS-9560 ॲडव्हान्स)', '३० किलो बॅग - ₹२,१५०', 'https://images.unsplash.com/photo-1599598425947-020645323005')" class='w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition flex items-center justify-center space-x-2 text-xs'>
+                            <i class='fa-solid fa-share-nodes text-agri-600'></i>
+                            <span>माहिती शेअर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3. हायब्रिड मका -->
+                <div class='bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition p-card' id='card-3'>
+                    <div>
+                        <img alt='हायब्रिड मका' class='w-full h-48 object-cover' src='https://images.unsplash.com/photo-1551754655-cd27e38d2076'/>
+                        <div class='p-5 space-y-3'>
+                            <div class='flex items-center justify-between'>
+                                <span class='text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full'>हायब्रिड वाण</span>
+                                <span class='text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md'><i class='fa-solid fa-weight-hanging mr-1'></i>४ किलो बॅग</span>
+                            </div>
+                            <h3 class='text-lg font-bold text-slate-900'>३. भूमंडलम सुपर गोल्ड मका-४०४</h3>
+                            <p class='text-xs text-slate-600 leading-relaxed'>• कणसे पूर्ण भरलेली, आकर्षक सोनेरी दाणे.<br/>• पाण्याचा ताण सहन करणारे हायब्रिड वाण.</p>
+                            <div class='pt-2 border-t border-slate-100 flex items-center justify-between'>
+                                <div>
+                                    <span class='text-[10px] text-slate-400 block'>दर प्रति बॅग:</span>
+                                    <span class='text-base font-extrabold text-agri-800'>₹९५०</span>
+                                </div>
+                                <div class='flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl'>
+                                    <button onclick="updateQty(3, -1, 950)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>-</button>
+                                    <span id='qty-3' class='w-6 text-center font-bold text-sm'>1</span>
+                                    <button onclick="updateQty(3, 1, 950)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='p-5 pt-0 space-y-2'>
+                        <div class='bg-agri-50 p-2.5 rounded-xl flex items-center justify-between text-xs font-bold text-agri-900'>
+                            <span>एकूण किंमत:</span>
+                            <span id='total-3' class='text-sm text-agri-700'>₹९५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('३. भूमंडलम सुपर गोल्ड मका-४०४', '४ किलो बॅग', 3, 950)" class='w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition flex items-center justify-center space-x-2 shadow-md text-xs'>
+                            <i class='fa-brands fa-whatsapp text-base'></i>
+                            <span>व्हॉट्सॲपवर खरेदी करा</span>
+                        </button>
+                        <button onclick="shareProduct('३. भूमंडलम सुपर गोल्ड मका-४०४', '४ किलो बॅग - ₹९५०', 'https://images.unsplash.com/photo-1551754655-cd27e38d2076')" class='w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition flex items-center justify-center space-x-2 text-xs'>
+                            <i class='fa-solid fa-share-nodes text-agri-600'></i>
+                            <span>माहिती शेअर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 4. बाजरी -->
+                <div class='bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition p-card' id='card-4'>
+                    <div>
+                        <img alt='बाजरी बियाणे' class='w-full h-48 object-cover' src='https://images.unsplash.com/photo-1574943320219-553eb213f72d'/>
+                        <div class='p-5 space-y-3'>
+                            <div class='flex items-center justify-between'>
+                                <span class='text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full'>सुधारित वाण</span>
+                                <span class='text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md'><i class='fa-solid fa-weight-hanging mr-1'></i>१ किलो पॅक</span>
+                            </div>
+                            <h3 class='text-lg font-bold text-slate-900'>४. भूमंडलम वज्र बाजरी-९९</h3>
+                            <p class='text-xs text-slate-600 leading-relaxed'>• लांब व टणक कणसे, केरा रोगास प्रतिकारक.<br/>• दुष्काळी भागात भरघोस उत्पन्न.</p>
+                            <div class='pt-2 border-t border-slate-100 flex items-center justify-between'>
+                                <div>
+                                    <span class='text-[10px] text-slate-400 block'>दर प्रति पॅक:</span>
+                                    <span class='text-base font-extrabold text-agri-800'>₹३८०</span>
+                                </div>
+                                <div class='flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl'>
+                                    <button onclick="updateQty(4, -1, 380)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>-</button>
+                                    <span id='qty-4' class='w-6 text-center font-bold text-sm'>1</span>
+                                    <button onclick="updateQty(4, 1, 380)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='p-5 pt-0 space-y-2'>
+                        <div class='bg-agri-50 p-2.5 rounded-xl flex items-center justify-between text-xs font-bold text-agri-900'>
+                            <span>एकूण किंमत:</span>
+                            <span id='total-4' class='text-sm text-agri-700'>₹३८०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('४. भूमंडलम वज्र बाजरी-९९', '१ किलो पॅक', 4, 380)" class='w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition flex items-center justify-center space-x-2 shadow-md text-xs'>
+                            <i class='fa-brands fa-whatsapp text-base'></i>
+                            <span>व्हॉट्सॲपवर खरेदी करा</span>
+                        </button>
+                        <button onclick="shareProduct('४. भूमंडलम वज्र बाजरी-९९', '१ किलो पॅक - ₹३८०', 'https://images.unsplash.com/photo-1574943320219-553eb213f72d')" class='w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition flex items-center justify-center space-x-2 text-xs'>
+                            <i class='fa-solid fa-share-nodes text-agri-600'></i>
+                            <span>माहिती शेअर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 5. बीटी कापूस -->
+                <div class='bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition p-card' id='card-5'>
+                    <div>
+                        <img alt='कापूस बियाणे' class='w-full h-48 object-cover' src='https://images.unsplash.com/photo-1605001011157-26f6ebd64d85'/>
+                        <div class='p-5 space-y-3'>
+                            <div class='flex items-center justify-between'>
+                                <span class='text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full'>BG-II कापूस</span>
+                                <span class='text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md'><i class='fa-solid fa-weight-hanging mr-1'></i>४७५ ग्रॅम</span>
+                            </div>
+                            <h3 class='text-lg font-bold text-slate-900'>५. भूमंडलम व्हाईट गोल्ड बीटी कापूस</h3>
+                            <p class='text-xs text-slate-600 leading-relaxed'>• मोठी बोंडे, वेचणीस सोपा.<br/>• रसशोषक किडींना प्रतिकारक व लांब धागा.</p>
+                            <div class='pt-2 border-t border-slate-100 flex items-center justify-between'>
+                                <div>
+                                    <span class='text-[10px] text-slate-400 block'>दर प्रति पॅक:</span>
+                                    <span class='text-base font-extrabold text-agri-800'>₹८६४</span>
+                                </div>
+                                <div class='flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl'>
+                                    <button onclick="updateQty(5, -1, 864)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>-</button>
+                                    <span id='qty-5' class='w-6 text-center font-bold text-sm'>1</span>
+                                    <button onclick="updateQty(5, 1, 864)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='p-5 pt-0 space-y-2'>
+                        <div class='bg-agri-50 p-2.5 rounded-xl flex items-center justify-between text-xs font-bold text-agri-900'>
+                            <span>एकूण किंमत:</span>
+                            <span id='total-5' class='text-sm text-agri-700'>₹८६४</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('५. भूमंडलम व्हाईट गोल्ड बीटी कापूस', '४७५ ग्रॅम पॅक', 5, 864)" class='w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition flex items-center justify-center space-x-2 shadow-md text-xs'>
+                            <i class='fa-brands fa-whatsapp text-base'></i>
+                            <span>व्हॉट्सॲपवर खरेदी करा</span>
+                        </button>
+                        <button onclick="shareProduct('५. भूमंडलम व्हाईट गोल्ड बीटी कापूस', '४७५ ग्रॅम पॅक - ₹८६४', 'https://images.unsplash.com/photo-1605001011157-26f6ebd64d85')" class='w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition flex items-center justify-center space-x-2 text-xs'>
+                            <i class='fa-solid fa-share-nodes text-agri-600'></i>
+                            <span>माहिती शेअर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 6. हरभरा -->
+                <div class='bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition p-card' id='card-6'>
+                    <div>
+                        <img alt='हरभरा बियाणे' class='w-full h-48 object-cover' src='https://images.unsplash.com/photo-1515543237350-b3eea1ec8082'/>
+                        <div class='p-5 space-y-3'>
+                            <div class='flex items-center justify-between'>
+                                <span class='text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full'>रब्बी विशेष</span>
+                                <span class='text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md'><i class='fa-solid fa-weight-hanging mr-1'></i>३० किलो बॅग</span>
+                            </div>
+                            <h3 class='text-lg font-bold text-slate-900'>६. भूमंडलम विजय हरभरा</h3>
+                            <p class='text-xs text-slate-600 leading-relaxed'>• घाटे अळीस व मर रोगास उच्च प्रतिकारक.<br/>• टपोरे दाणे असणारा रब्बी वाण.</p>
+                            <div class='pt-2 border-t border-slate-100 flex items-center justify-between'>
+                                <div>
+                                    <span class='text-[10px] text-slate-400 block'>दर प्रति बॅग:</span>
+                                    <span class='text-base font-extrabold text-agri-800'>₹२,४००</span>
+                                </div>
+                                <div class='flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl'>
+                                    <button onclick="updateQty(6, -1, 2400)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>-</button>
+                                    <span id='qty-6' class='w-6 text-center font-bold text-sm'>1</span>
+                                    <button onclick="updateQty(6, 1, 2400)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='p-5 pt-0 space-y-2'>
+                        <div class='bg-agri-50 p-2.5 rounded-xl flex items-center justify-between text-xs font-bold text-agri-900'>
+                            <span>एकूण किंमत:</span>
+                            <span id='total-6' class='text-sm text-agri-700'>₹२,४००</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('६. भूमंडलम विजय हरभरा', '३० किलो बॅग', 6, 2400)" class='w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition flex items-center justify-center space-x-2 shadow-md text-xs'>
+                            <i class='fa-brands fa-whatsapp text-base'></i>
+                            <span>व्हॉट्सॲपवर खरेदी करा</span>
+                        </button>
+                        <button onclick="shareProduct('६. भूमंडलम विजय हरभरा', '३० किलो बॅग - ₹२,४००', 'https://images.unsplash.com/photo-1515543237350-b3eea1ec8082')" class='w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition flex items-center justify-center space-x-2 text-xs'>
+                            <i class='fa-solid fa-share-nodes text-agri-600'></i>
+                            <span>माहिती शेअर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 7. गहू -->
+                <div class='bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition p-card' id='card-7'>
+                    <div>
+                        <img alt='गहू बियाणे' class='w-full h-48 object-cover' src='https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b'/>
+                        <div class='p-5 space-y-3'>
+                            <div class='flex items-center justify-between'>
+                                <span class='text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full'>रब्बी गहू</span>
+                                <span class='text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md'><i class='fa-solid fa-weight-hanging mr-1'></i>४० किलो बॅग</span>
+                            </div>
+                            <h3 class='text-lg font-bold text-slate-900'>७. भूमंडलम लोकवन गहू</h3>
+                            <p class='text-xs text-slate-600 leading-relaxed'>• चपातीसाठी मऊ आणि उत्तम चवीचा गहू.<br/>• चमकदार सुवर्ण दाणे आणि भरघोस वाण.</p>
+                            <div class='pt-2 border-t border-slate-100 flex items-center justify-between'>
+                                <div>
+                                    <span class='text-[10px] text-slate-400 block'>दर प्रति बॅग:</span>
+                                    <span class='text-base font-extrabold text-agri-800'>₹१,८५०</span>
+                                </div>
+                                <div class='flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl'>
+                                    <button onclick="updateQty(7, -1, 1850)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>-</button>
+                                    <span id='qty-7' class='w-6 text-center font-bold text-sm'>1</span>
+                                    <button onclick="updateQty(7, 1, 1850)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='p-5 pt-0 space-y-2'>
+                        <div class='bg-agri-50 p-2.5 rounded-xl flex items-center justify-between text-xs font-bold text-agri-900'>
+                            <span>एकूण किंमत:</span>
+                            <span id='total-7' class='text-sm text-agri-700'>₹१,८५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('७. भूमंडलम लोकवन गहू', '४० किलो बॅग', 7, 1850)" class='w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition flex items-center justify-center space-x-2 shadow-md text-xs'>
+                            <i class='fa-brands fa-whatsapp text-base'></i>
+                            <span>व्हॉट्सॲपवर खरेदी करा</span>
+                        </button>
+                        <button onclick="shareProduct('७. भूमंडलम लोकवन गहू', '४० किलो बॅग - ₹१,८५०', 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b')" class='w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition flex items-center justify-center space-x-2 text-xs'>
+                            <i class='fa-solid fa-share-nodes text-agri-600'></i>
+                            <span>माहिती शेअर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 8. मूग -->
+                <div class='bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition p-card' id='card-8'>
+                    <div>
+                        <img alt='मूग बियाणे' class='w-full h-48 object-cover' src='https://images.unsplash.com/photo-1586201375761-83865001e31c'/>
+                        <div class='p-5 space-y-3'>
+                            <div class='flex items-center justify-between'>
+                                <span class='text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full'>उन्हाळी/खरीप</span>
+                                <span class='text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md'><i class='fa-solid fa-weight-hanging mr-1'></i>५ किलो पॅक</span>
+                            </div>
+                            <h3 class='text-lg font-bold text-slate-900'>८. भूमंडलम हिरवा मूग</h3>
+                            <p class='text-xs text-slate-600 leading-relaxed'>• ६०-६५ दिवसांत तयार होणारा वाण.<br/>• भुरी रोगास प्रतिकारक आणि टपोऱ्या शेंगा.</p>
+                            <div class='pt-2 border-t border-slate-100 flex items-center justify-between'>
+                                <div>
+                                    <span class='text-[10px] text-slate-400 block'>दर प्रति पॅक:</span>
+                                    <span class='text-base font-extrabold text-agri-800'>₹६५०</span>
+                                </div>
+                                <div class='flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl'>
+                                    <button onclick="updateQty(8, -1, 650)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>-</button>
+                                    <span id='qty-8' class='w-6 text-center font-bold text-sm'>1</span>
+                                    <button onclick="updateQty(8, 1, 650)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='p-5 pt-0 space-y-2'>
+                        <div class='bg-agri-50 p-2.5 rounded-xl flex items-center justify-between text-xs font-bold text-agri-900'>
+                            <span>एकूण किंमत:</span>
+                            <span id='total-8' class='text-sm text-agri-700'>₹६५०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('८. भूमंडलम हिरवा मूग', '५ किलो पॅक', 8, 650)" class='w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition flex items-center justify-center space-x-2 shadow-md text-xs'>
+                            <i class='fa-brands fa-whatsapp text-base'></i>
+                            <span>व्हॉट्सॲपवर खरेदी करा</span>
+                        </button>
+                        <button onclick="shareProduct('८. भूमंडलम हिरवा मूग', '५ किलो पॅक - ₹६५०', 'https://images.unsplash.com/photo-1586201375761-83865001e31c')" class='w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition flex items-center justify-center space-x-2 text-xs'>
+                            <i class='fa-solid fa-share-nodes text-agri-600'></i>
+                            <span>माहिती शेअर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 9. उडीद -->
+                <div class='bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition p-card' id='card-9'>
+                    <div>
+                        <img alt='उडीद बियाणे' class='w-full h-48 object-cover' src='https://images.unsplash.com/photo-1515543237350-b3eea1ec8082'/>
+                        <div class='p-5 space-y-3'>
+                            <div class='flex items-center justify-between'>
+                                <span class='text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full'>खरीप विशेष</span>
+                                <span class='text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md'><i class='fa-solid fa-weight-hanging mr-1'></i>५ किलो पॅक</span>
+                            </div>
+                            <h3 class='text-lg font-bold text-slate-900'>९. भूमंडलम काळा उडीद</h3>
+                            <p class='text-xs text-slate-600 leading-relaxed'>• पिवळा पडणाऱ्या रोगास प्रतिकारक.<br/>• मजबूत झाड आणि उच्च उत्पादन क्षमता.</p>
+                            <div class='pt-2 border-t border-slate-100 flex items-center justify-between'>
+                                <div>
+                                    <span class='text-[10px] text-slate-400 block'>दर प्रति पॅक:</span>
+                                    <span class='text-base font-extrabold text-agri-800'>₹६८०</span>
+                                </div>
+                                <div class='flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl'>
+                                    <button onclick="updateQty(9, -1, 680)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>-</button>
+                                    <span id='qty-9' class='w-6 text-center font-bold text-sm'>1</span>
+                                    <button onclick="updateQty(9, 1, 680)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='p-5 pt-0 space-y-2'>
+                        <div class='bg-agri-50 p-2.5 rounded-xl flex items-center justify-between text-xs font-bold text-agri-900'>
+                            <span>एकूण किंमत:</span>
+                            <span id='total-9' class='text-sm text-agri-700'>₹६८०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('९. भूमंडलम काळा उडीद', '५ किलो पॅक', 9, 680)" class='w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition flex items-center justify-center space-x-2 shadow-md text-xs'>
+                            <i class='fa-brands fa-whatsapp text-base'></i>
+                            <span>व्हॉट्सॲपवर खरेदी करा</span>
+                        </button>
+                        <button onclick="shareProduct('९. भूमंडलम काळा उडीद', '५ किलो पॅक - ₹६८०', 'https://images.unsplash.com/photo-1515543237350-b3eea1ec8082')" class='w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition flex items-center justify-center space-x-2 text-xs'>
+                            <i class='fa-solid fa-share-nodes text-agri-600'></i>
+                            <span>माहिती शेअर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 10. तूर -->
+                <div class='bg-white rounded-3xl border border-slate-200 shadow-md overflow-hidden flex flex-col justify-between hover:shadow-xl transition p-card' id='card-10'>
+                    <div>
+                        <img alt='तूर बियाणे' class='w-full h-48 object-cover' src='https://images.unsplash.com/photo-1586201375761-83865001e31c'/>
+                        <div class='p-5 space-y-3'>
+                            <div class='flex items-center justify-between'>
+                                <span class='text-[10px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full'>दीर्घ कालावधी</span>
+                                <span class='text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md'><i class='fa-solid fa-weight-hanging mr-1'></i>३ किलो पॅक</span>
+                            </div>
+                            <h3 class='text-lg font-bold text-slate-900'>१०. भूमंडलम बंपर तूर</h3>
+                            <p class='text-xs text-slate-600 leading-relaxed'>• उभट वाढणारे झाड, आंतरपिकासाठी योग्य.<br/>• बांज रोग व उकिडव्या रोगास प्रतिकारक.</p>
+                            <div class='pt-2 border-t border-slate-100 flex items-center justify-between'>
+                                <div>
+                                    <span class='text-[10px] text-slate-400 block'>दर प्रति पॅक:</span>
+                                    <span class='text-base font-extrabold text-agri-800'>₹४९०</span>
+                                </div>
+                                <div class='flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl'>
+                                    <button onclick="updateQty(10, -1, 490)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>-</button>
+                                    <span id='qty-10' class='w-6 text-center font-bold text-sm'>1</span>
+                                    <button onclick="updateQty(10, 1, 490)" class='w-7 h-7 bg-white rounded-lg font-bold shadow text-slate-700 active:scale-95'>+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='p-5 pt-0 space-y-2'>
+                        <div class='bg-agri-50 p-2.5 rounded-xl flex items-center justify-between text-xs font-bold text-agri-900'>
+                            <span>एकूण किंमत:</span>
+                            <span id='total-10' class='text-sm text-agri-700'>₹४९०</span>
+                        </div>
+                        <button onclick="buyOnWhatsApp('१०. भूमंडलम बंपर तूर', '३ किलो पॅक', 10, 490)" class='w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition flex items-center justify-center space-x-2 shadow-md text-xs'>
+                            <i class='fa-brands fa-whatsapp text-base'></i>
+                            <span>व्हॉट्सॲपवर खरेदी करा</span>
+                        </button>
+                        <button onclick="shareProduct('१०. भूमंडलम बंपर तूर', '३ किलो पॅक - ₹४९०', 'https://images.unsplash.com/photo-1586201375761-83865001e31c')" class='w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition flex items-center justify-center space-x-2 text-xs'>
+                            <i class='fa-solid fa-share-nodes text-agri-600'></i>
+                            <span>माहिती शेअर करा</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ================= PAGE 3: CROPS INFO PAGE (स्वतंत्र पेज) ================= -->
+        <div class='page-view py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' id='pageCrops'>
+            <div class='flex items-center justify-between mb-6'>
+                <button onclick="openPage('pageHome')" class='text-xs font-bold text-agri-700 bg-agri-50 px-4 py-2 rounded-xl hover:bg-agri-100 transition flex items-center space-x-2'>
+                    <i class='fa-solid fa-arrow-left'></i><span>मुख्य पानावर जा</span>
+                </button>
+            </div>
+            <div class='text-center max-w-2xl mx-auto mb-8 sm:mb-12'>
+                <span class='text-[10px] sm:text-xs uppercase font-bold tracking-widest text-agri-600 bg-agri-50 px-3 py-1 rounded-full border border-agri-200'>कृषी मार्गदर्शन</span>
+                <h2 class='text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2'>महत्त्वाची पिके व लागवड मार्गदर्शक</h2>
+                <p class='text-xs sm:text-sm text-slate-500 mt-2'>उत्पादनात वाढ मिळवण्यासाठी विविध पिकांची अचूक माहिती.</p>
+            </div>
+            <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                <div class='bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3'>
+                    <div class='w-12 h-12 rounded-2xl bg-agri-50 text-agri-700 flex items-center justify-center text-xl font-bold'>🌱</div>
+                    <h3 class='text-lg font-bold text-slate-900'>खरीप हंगाम पिके</h3>
+                    <p class='text-xs sm:text-sm text-slate-600 leading-relaxed'>सोयाबीन, बीटी कापूस, मका आणि तूर पिकांची बीजप्रक्रिया, योग्य अंतर आणि पेरणी कालावधीची सविस्तर माहिती.</p>
+                </div>
+                <div class='bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3'>
+                    <div class='w-12 h-12 rounded-2xl bg-agri-50 text-agri-700 flex items-center justify-center text-xl font-bold'>🌾</div>
+                    <h3 class='text-lg font-bold text-slate-900'>रब्बी हंगाम पिके</h3>
+                    <p class='text-xs sm:text-sm text-slate-600 leading-relaxed'>हरभरा, लोकवन गहू आणि उन्हाळी मूग पिकासाठी पाणी व्यवस्थापन व फवारणीचे योग्य टप्पे.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 4: FERTILIZERS INFO PAGE (स्वतंत्र पेज) ================= -->
+        <div class='page-view py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' id='pageFertilizers'>
+            <div class='flex items-center justify-between mb-6'>
+                <button onclick="openPage('pageHome')" class='text-xs font-bold text-agri-700 bg-agri-50 px-4 py-2 rounded-xl hover:bg-agri-100 transition flex items-center space-x-2'>
+                    <i class='fa-solid fa-arrow-left'></i><span>मुख्य पानावर जा</span>
+                </button>
+            </div>
+            <div class='text-center max-w-2xl mx-auto mb-8 sm:mb-12'>
+                <span class='text-[10px] sm:text-xs uppercase font-bold tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200'>पोषण व्यवस्थापन</span>
+                <h2 class='text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2'>खते व अन्नद्रव्ये मार्गदर्शन</h2>
+                <p class='text-xs sm:text-sm text-slate-500 mt-2'>जमिनीची सुपीकता आणि पिकांची निरोगी वाढ जपण्यासाठी संतुलित खत मात्रा.</p>
+            </div>
+            <div class='bg-white p-6 rounded-3xl border border-slate-200 shadow-sm max-w-3xl mx-auto space-y-4'>
+                <h3 class='text-lg font-bold text-slate-900'>मूलभूत खत व्यवस्थापन तक्ता</h3>
+                <p class='text-xs sm:text-sm text-slate-600 leading-relaxed'>पेरणीच्या वेळी रासायनिक खतांसोबत सूक्ष्म अन्नद्रव्ये (झिंक, बोरॉन, सल्फर) वापरल्यास पिकांची प्रतिकारशक्ती सुधारते आणि उत्पादन भरघोस येते.</p>
+            </div>
+        </div>
+
+        <!-- Required Blogger Posts Section -->
+        <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8'>
+            <b:section class='main-posts' id='main' showaddelement='yes'>
+                <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'/>
+            </b:section>
+        </div>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class='bg-slate-900 text-white pt-10 pb-8 border-t border-slate-800 mt-12 sm:mt-20' id='contactSection'>
+        <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 pb-8 border-b border-slate-800'>
+            <div>
+                <div class='flex items-center space-x-3 mb-3 sm:mb-4'>
+                    <img alt='भूमंडलम सीड्स लोगो' class='w-10 h-10 object-contain' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_1L-t58U_bGiO5jpDYqevw4sFui4AUDm2tjE2usi-jIYR2tYoEz2GPJqv8uWQIzznzTEaccz1XqxJNYh6sK1c2GARwFp9DkgLO1zqcN0737ZiXvXEiSwkMmhHFedGGEU2K6xnsiu4eJCVl2enqy8c6tjWULlF34IwZVsGJQEtTRrW_BbOCwPEJVW0hSI/s320/bhum%20logo.png'/>
+                    <h3 class='font-bold text-base sm:text-lg'>भूमंडलम सीड्स</h3>
+                </div>
+                <p class='text-xs sm:text-sm text-slate-400 leading-relaxed'>शेतकऱ्यांच्या समृद्धीसाठी उच्च दर्जाचे बियाणे आणि अचूक कृषी मार्गदर्शन.</p>
+            </div>
+            <div>
+                <h4 class='font-bold text-xs sm:text-sm text-slate-200 mb-3 sm:mb-4 uppercase tracking-wider'>महत्त्वाचे दुवे</h4>
+                <ul class='space-y-2 text-xs sm:text-sm text-slate-400'>
+                    <li><button class='hover:text-agri-400 transition' onclick="openPage('pageHome')">मुखपृष्ठ</button></li>
+                    <li><button class='hover:text-agri-400 transition' onclick="openPage('pageProducts')">आमची उत्पादने</button></li>
+                    <li><button class='hover:text-agri-400 transition' onclick="openPage('pageCrops')">पिकांची माहिती</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class='font-bold text-xs sm:text-sm text-slate-200 mb-3 sm:mb-4 uppercase tracking-wider'>संपर्क व पत्ता</h4>
+                <p class='text-xs sm:text-sm text-slate-400 leading-relaxed mb-2'><i class='fa-solid fa-location-dot mr-2 text-agri-500'></i> पिंपळगाव पेठ, ता. सिल्लोड, जि. छत्रपती संभाजीनगर (औरंगाबाद), महाराष्ट्र</p>
+                <p class='text-xs sm:text-sm text-slate-400 leading-relaxed mb-2'><i class='fa-solid fa-phone mr-2 text-agri-500'></i> +91 8530978413</p>
+            </div>
+        </div>
+        <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-slate-500 text-center sm:text-left'>
+            <p>&#169; 2026 भूमंडलम सीड्स प्रोड्युसर कंपनी लिमिटेड. सर्व हक्क सुरक्षित.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // १. स्वतंत्र पेजेस उघडण्यासाठीचे फंक्शन
+        function openPage(pageId) {
+            // सर्व पेजेस पूर्ण लपवणे
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => {
+                page.classList.remove('active-page');
+            });
+
+            // फक्त निवडलेला पेज दाखवणे
+            const activeTarget = document.getElementById(pageId);
+            if (activeTarget) {
+                activeTarget.classList.add('active-page');
+            }
+
+            // स्क्रीनवर सर्वात वर स्क्रोल करणे
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // २. मोबाईल मेनू चालू-बंद करण्यासाठी
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // ३. बॅगची संख्या (+ / -) वाढवणे-कमी करणे आणि किंमत बदलणे
+        function updateQty(id, change, unitPrice) {
+            const qtyElem = document.getElementById('qty-' + id);
+            const totalElem = document.getElementById('total-' + id);
+            
+            let currentQty = parseInt(qtyElem.innerText);
+            currentQty += change;
+
+            if (currentQty &lt; 1) {
+                currentQty = 1;
+            }
+
+            qtyElem.innerText = currentQty;
+            const totalPrice = currentQty * unitPrice;
+            totalElem.innerText = '₹' + totalPrice.toLocaleString('en-IN');
+        }
+
+        // ४. व्हॉट्सॲपवर पूर्ण बिल व डिटेल्स पाठवणे
+        function buyOnWhatsApp(productName, packWeight, id, unitPrice) {
+            const qty = parseInt(document.getElementById('qty-' + id).innerText);
+            const totalAmount = qty * unitPrice;
+
+            const message = `🌾 *भूमंडलम सीड्स - नवीन ऑर्डर बुकिंग* 🌾\n\n` +
+                            `📦 *उत्पादन:* ${productName}\n` +
+                            `⚖️ *पॅकिंग वजन:* ${packWeight}\n` +
+                            `🔢 *बॅग संख्या:* ${qty} बॅग\n` +
+                            `💰 *एकूण रक्कम:* ₹${totalAmount.toLocaleString('en-IN')}\n\n` +
+                            `-----------------------------------\n` +
+                            `👤 *ग्राहकाचे नाव:* \n` +
+                            `📍 *संपूर्ण पत्ता:* \n` +
+                            `📞 *मोबाईल नंबर:* \n` +
+                            `-----------------------------------\n` +
+                            `कृपया माझी ही ऑर्डर कन्फर्म करावी आणि डिलिव्हरी डिटेल्स पाठवावी.`;
+
+            const whatsappUrl = `https://wa.me/918530978413?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // ५. उत्पादनाचा फोटो व माहिती व्हॉट्सॲपवर शेअर करणे
+        function shareProduct(pName, pDetails, pImg) {
+            const msg = `🌱 *भूमंडलम सीड्स - उत्पादन माहिती* 🌱\n\n` +
+                        `*उत्पादन:* ${pName}\n` +
+                        `*पॅकिंग व दर:* ${pDetails}\n\n` +
+                        `🖼 *फोटो पहा:* ${pImg}\n\n` +
+                        `🛒 *वेबसाईटवर खरेदी करा:* ${window.location.href}\n` +
+                        `📞 *संपर्क:* +91 8530978413`;
+
+            const url = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
