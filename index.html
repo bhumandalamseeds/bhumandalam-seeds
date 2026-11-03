@@ -73,6 +73,7 @@
                 <button class="px-3 py-2 text-xs lg:text-sm font-semibold text-slate-600 hover:text-agri-700 hover:bg-slate-100 rounded-xl transition flex items-center space-x-1.5" onclick="openPage('pageContact')">
                     <i class="fa-solid fa-address-book"></i><span data-t="navContact">संपर्क</span>
                 </button>
+                <button id="adminPanelButton" class="px-3 py-2 text-xs lg:text-sm font-semibold text-slate-600 hover:text-agri-700 hover:bg-slate-100 rounded-xl transition" type="button">Admin</button>
             </nav>
 
             <!-- Multi-Language Switcher Tab & WhatsApp -->
@@ -868,5 +869,9 @@
             document.getElementById('htmlRoot').setAttribute('lang', lang);
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./supabase-config.js"></script>
+    <script src="./admin.js"></script>
+    <script src="./share.js"></script>
 </body>
 </html>
