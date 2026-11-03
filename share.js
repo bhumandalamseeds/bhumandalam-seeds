@@ -1,5 +1,5 @@
 (() => {
-  const productIds = ["kds-753", "macs-1188", "kds-992", "kds-726", "macs-1281", "phule-rajmah"];
+  const productIds = ["kds-753", "macs-1188", "kds-992", "kds-726", "ds-228", "ams-100-39", "macs-1281", "phule-rajmah", "bdn-711"];
   const cards = () => document.querySelectorAll("#pageProducts .grid > div");
 
   function addShareButtons() {
