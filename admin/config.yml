@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "seeds"
+    label: "बियाणे माहिती (Seeds)"
+    folder: "content/seeds"
+    create: true
+    fields:
+      - {label: "बियाण्याचे नाव", name: "title", widget: "string"}
+      - {label: "प्रकार/वाण", name: "variety", widget: "string"}
+      - {label: "किंमत / तपशील", name: "description", widget: "text"}
+      - {label: "फोटो", name: "image", widget: "image"}
